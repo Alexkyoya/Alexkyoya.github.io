@@ -28,18 +28,18 @@
       .language-toggle button { border:1px solid transparent; background:transparent; color:var(--muted); padding:5px 7px; cursor:pointer; font:10px 'DM Mono',monospace; }
       .language-toggle button.active { border-color:var(--acid); color:var(--acid); }
       .menu-dot { width:9px; height:9px; border-radius:50%; background:var(--acid); box-shadow:0 0 16px var(--acid); }
-      .hero { min-height:100svh; position:relative; display:flex; align-items:flex-end; padding:0 4.5vw 8vh; overflow:hidden; background:radial-gradient(circle at 67% 47%,rgba(199,243,107,.2),transparent 18%),linear-gradient(115deg,#171915 15%,#252920 68%,#11130f); }
+      .hero { min-height:max(100svh,780px); position:relative; display:flex; align-items:flex-end; padding:120px 4.5vw 8vh; overflow:hidden; background:radial-gradient(circle at 67% 47%,rgba(199,243,107,.2),transparent 18%),linear-gradient(115deg,#171915 15%,#252920 68%,#11130f); }
       .hero::after { content:""; position:absolute; width:52vw; height:52vw; right:5vw; top:8vh; border:1px solid rgba(199,243,107,.35); border-radius:50%; box-shadow:0 0 0 70px rgba(199,243,107,.025),0 0 0 140px rgba(199,243,107,.02); animation:drift 12s ease-in-out infinite alternate; }
       .hero-image { position:absolute; inset:12vh 7vw 0 auto; width:42vw; max-width:580px; background:url('profile.jpg') center 12%/cover; filter:grayscale(1) contrast(1.1); opacity:.52; mix-blend-mode:screen; mask-image:linear-gradient(to bottom,black 50%,transparent 98%); }
       .hero-copy { position:relative; z-index:2; max-width:min(55vw,760px); }
       .eyebrow { color:var(--acid); font:12px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.08em; margin-bottom:25px; }
-      h1 { font-size:clamp(4.5rem,12vw,11rem); line-height:.83; letter-spacing:-.09em; font-weight:800; max-width:1000px; }
+      h1 { font-size:clamp(4.5rem,10vw,10rem); line-height:.83; letter-spacing:-.09em; font-weight:800; max-width:1000px; }
       h1 em { color:var(--acid); font-style:normal; }
       .hero-bottom { position:relative; z-index:3; width:240px; margin:30px 0 0 clamp(220px,18vw,280px); font-size:13px; line-height:1.6; color:var(--muted); }
       .scroll-note { position:absolute; left:4.5vw; bottom:28px; color:var(--muted); font:10px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.1em; }
       .scroll-note::before { content:""; display:inline-block; width:42px; height:1px; background:var(--acid); vertical-align:middle; margin-right:12px; }
-      .section { padding:17vh 4.5vw; position:relative; }
-      .section-head { display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid var(--line); padding-top:17px; margin-bottom:75px; }
+      .section { padding:6vh 4.5vw; position:relative; }
+      .section-head { display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid var(--line); padding-top:14px; margin-bottom:30px; }
       .section-kicker { color:var(--acid); font:11px 'DM Mono',monospace; text-transform:uppercase; }
       .section-index { color:var(--muted); font:11px 'DM Mono',monospace; }
       .intro { display:grid; grid-template-columns:1fr 1fr; gap:7vw; align-items:start; }
@@ -75,8 +75,8 @@
       @keyframes drift { to { transform:translate(-4vw,4vh) rotate(12deg); } }
       @media (max-width:700px) {
         .topbar { padding:22px 6vw; } .topbar nav { gap:14px; } .topbar nav a:nth-child(2) { display:none; }
-        .hero { padding:0 6vw 15vh; } .hero-image { inset:15vh -12vw 0 auto; width:85vw; opacity:.28; } .hero-bottom { width:190px; margin:30px 0 0; }
-        .scroll-note { left:6vw; } .section { padding:14vh 6vw; } .intro { grid-template-columns:1fr; gap:40px; } .section-head { margin-bottom:48px; }
+        .hero { min-height:100svh; padding:110px 6vw 15vh; } .hero-image { inset:15vh -12vw 0 auto; width:85vw; opacity:.28; } .hero-bottom { width:190px; margin:30px 0 0; }
+        .scroll-note { left:6vw; } .section { padding:6vh 6vw; } .intro { grid-template-columns:1fr; gap:40px; } .section-head { margin-bottom:25px; }
         .project { grid-template-columns:12% 1fr 20px; gap:10px; } .project-tags { grid-column:2; } .project-arrow { grid-column:3; grid-row:1 / span 2; }
         .stats { grid-template-columns:1fr; margin-top:55px; } .stat { padding:24px; } .contact-footer { align-items:start; gap:25px; flex-direction:column; }
       }
@@ -85,6 +85,7 @@
       /* Mission-control visual layer */
       :root { --ink:#050b12; --paper:#dbeaf0; --muted:#718696; --acid:#62dcff; --line:rgba(98,220,255,.24); --orange:#ff9c5c; }
       body { background:#050b12; font-family:'DM Mono',monospace; }
+      body[data-language="fr"] .hero::before { content:"SYSTÈME EN LIGNE / TÉLÉMÉTRIE ACTIVE / LAT 45 30 12.6 N"; }
       body::before { opacity:.25; background-image:radial-gradient(circle,rgba(137,202,229,.85) 0 1px,transparent 1px),radial-gradient(circle,rgba(255,255,255,.6) 0 1px,transparent 1px); background-size:137px 137px,223px 223px; mask-image:linear-gradient(to bottom,black,black); }
       .cursor { border-color:var(--acid); }
       .cursor.is-hover { background:var(--acid); }
@@ -209,6 +210,8 @@
       .experience-title { color:var(--paper); font:600 clamp(1.4rem,2.8vw,2.5rem) Manrope,sans-serif; letter-spacing:-.05em; }
       .experience-subtitle { color:var(--orange); font:11px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.07em; margin-top:8px; }
       .experience-date { color:var(--acid); font:12px 'DM Mono',monospace; white-space:nowrap; }
+      .experience-date-stack { display:flex; flex-direction:column; align-items:flex-end; gap:5px; text-align:right; }
+      .experience-date-stack span:first-child { color:var(--paper); }
       .experience-points { list-style:none; display:grid; gap:12px; color:#a8bbc5; font:13px Manrope,sans-serif; line-height:1.6; }
       .experience-points li { position:relative; padding-left:19px; }
       .experience-points li::before { content:""; position:absolute; left:0; top:.65em; width:6px; height:6px; border:1px solid var(--orange); border-radius:50%; }
@@ -251,6 +254,59 @@
       @media (max-width:700px) { .hero::before { top:12vh; left:6vw; font-size:8px; } .hero-copy { max-width:100%; } .hero-image { inset:18vh 6vw auto auto; width:42vw; height:42vw; } .video-label { right:6vw; top:17vh; font-size:8px; } .portrait-meta { right:6vw; left:auto; top:calc(18vh + 42vw + 12px) !important; } .hero-video-frame { opacity:.24; } }
       @media (max-width:700px) { .language-module { margin-top:55px; } .language-list { grid-template-columns:repeat(2,1fr); gap:8px; } .language-row { min-height:145px; padding:15px 12px 13px; } .language-row::after { left:12px; top:13px; } .language-name { font-size:15px; } }
       @media (max-width:700px) { .topbar nav a:nth-child(n+2) { display:none; } .topbar nav { margin-left:8px; } }
+
+      /* Keep the first viewport readable and tighten the long-form sections. */
+      .hero { min-height:100svh; height:clamp(640px,100svh,900px); padding-top:105px; padding-bottom:5vh; }
+      .hero-copy { max-width:min(52vw,700px); }
+      h1 { font-size:clamp(4rem,8vw,8rem); line-height:.86; }
+      .eyebrow { margin-bottom:16px; }
+      .hero-bottom { margin-top:22px; }
+      .section { padding-top:3.5vh; padding-bottom:3.5vh; }
+      .section-head { padding-top:10px; margin-bottom:18px; }
+      .intro { gap:5vw; }
+      .intro-copy p + p { margin-top:16px; }
+      .button-link { margin-top:22px; }
+      .stats { margin-top:38px; }
+      .stat { padding:22px 20px; }
+      .language-module { margin-top:34px; padding-top:16px; }
+      .language-heading { margin-bottom:16px; }
+      .language-row { min-height:132px; padding:14px 13px 12px; }
+      .language-bar { margin-top:12px; }
+      .travel-layout { gap:22px; }
+      #travel-map { height:420px; }
+      .travel-list h3 { margin:12px 0 16px; }
+      .travel-count-label { margin:10px 0 18px; }
+      .map-legend { margin-top:16px; }
+      .education-card { min-height:235px; padding:18px; }
+      .education-meta { margin-top:18px; }
+      .education-detail { margin-top:16px; padding-top:10px; }
+      .experience-entry { margin-bottom:24px; padding:22px 24px 24px; }
+      .experience-top { gap:18px; padding-bottom:14px; margin-bottom:14px; }
+      .experience-points { gap:8px; }
+      .profile-panel { padding:18px; }
+      .profile-panel h3 { margin-bottom:14px; }
+      .skill-line { padding:8px 0; }
+      .cert-list { gap:8px; }
+      .education-note { margin-top:14px; }
+      .career-focus { margin-top:8px; padding:16px 18px; }
+      .contact { min-height:60vh; }
+      .contact-footer { padding-top:14px; }
+      body[data-language="fr"] .education-card::after { content:"NŒUD FORMATION"; }
+      @media (max-width:700px) {
+        .hero { min-height:640px; height:100svh; padding:100px 6vw 12vh; }
+        .hero-copy { max-width:100%; }
+        h1 { font-size:clamp(3.6rem,16vw,6.5rem); line-height:.88; }
+        .hero-bottom { margin-top:20px; }
+        .section { padding-top:28px; padding-bottom:28px; }
+        .intro { gap:24px; }
+        .stats { margin-top:28px; }
+        .language-module { margin-top:28px; }
+        .travel-layout { gap:28px; }
+        #travel-map { height:320px; }
+        .education-card { min-height:190px; }
+        .experience-entry { margin-bottom:18px; padding:18px 16px 20px; }
+        .contact { min-height:55vh; }
+      }
     </style>
   </head>
   <body>
@@ -302,12 +358,19 @@
       const orderedSections = ['profile', 'work', 'projects', 'education', 'about', 'travel', 'leadership', 'contact'];
       const mainContent = document.querySelector('main');
       const heroSection = mainContent.querySelector('.hero');
+      const legacyProjectList = document.querySelector('#work > .reveal:has(.project)');
+      if (legacyProjectList) legacyProjectList.remove();
+      const graderExperience = document.createElement('div');
+      graderExperience.className = 'experience-entry reveal grader-experience';
+      graderExperience.innerHTML = '<div class="experience-top"><div class="experience-brand"><div class="company-logo" aria-label="McGill University logo"><img src="https://upload.wikimedia.org/wikipedia/commons/1/11/Mcgill_univ_ca_logo.png" alt="McGill University logo" onerror="this.style.display=\'none\';this.parentElement.textContent=\'MG\'" /></div><div><h3 class="experience-title">McGill University — Desautels Faculty of Management</h3><p class="experience-subtitle">Grader — FINE 441 (Investment Management)</p></div></div><span class="experience-date experience-date-stack"><span>Montréal, QC</span><span>Sep 2026 — Present</span></span></div><ul class="experience-points"><li>Evaluated 100+ student assignments and financial models covering DCF valuation, CAPM, bond pricing and portfolio optimization.</li><li>Provided structured feedback on students’ equity analysis and risk management calculations.</li></ul>';
+      document.querySelector('#work').appendChild(graderExperience);
+      observer.observe(graderExperience);
       orderedSections.forEach((id) => mainContent.appendChild(document.getElementById(id)));
       mainContent.insertBefore(heroSection, mainContent.firstChild);
 
       const translations = {
         en: {
-          '.hero .eyebrow':'Multicultural strategy & technical analytics / Montreal — 2026', '.hero .hero-bottom':'Multilingual business analyst combining cross-cultural understanding, strategic thinking, and technical analytics across supply chain, finance, and growth environments.', '.hero .portrait-meta':'<span>IDENTITY 001</span> / ALEX ZHAO<br>MULTICULTURAL STRATEGY ANALYST', '.scroll-note':'Scroll to explore',
+          '.hero .eyebrow':'Multicultural strategy & technical analytics / Montreal — 2026', '.hero h1':'Global<br />insight.<br /><em>Data clarity.</em>', '.hero .hero-bottom':'Multilingual business analyst combining cross-cultural understanding, strategic thinking, and technical analytics across supply chain, finance, and growth environments.', '.hero .portrait-meta':'<span>IDENTITY 001</span> / ALEX ZHAO<br>MULTICULTURAL STRATEGY ANALYST', '.scroll-note':'Scroll to explore',
           '#profile .section-kicker':'01 / Skills & signals', '#profile .section-index':'Strategy + analytics + execution', '#profile .profile-panel:nth-child(1) h3':'Technical stack', '#profile .profile-panel:nth-child(3) h3':'Certifications', '#profile .profile-panel:nth-child(4) h3':'Interests with analytical value', '#profile .career-focus h3':'Target analyst roles', '#profile .career-focus p':'Interested in Target Risk Analyst and Supply Chain Analyst roles where risk signals, operational systems, and technical analytics support better decisions.',
           '#work .section-kicker':'02 / Professional experience', '#work .section-index':'Multi-industry strategic impact', '#projects .section-kicker':'03 / Selected projects', '#projects .section-index':'Research, risk & applied analytics', '#education .section-kicker':'04 / Education', '#education .section-index':'Three ways of learning', '#about .section-kicker':'05 / The person behind the numbers', '#about .section-index':'About me', '#travel .section-kicker':'06 / Travel log', '#travel .section-index':'Places that shaped my view', '#contact .section-kicker':'08 / Next chapter', '#contact .section-index':"Let's make something useful",
           '#about h2':'Global perspective.<br><span>Analytical depth.</span>', '#about .intro-copy p:nth-child(1)':"I'm Alex Zhao, a multilingual Business Analyst with a multicultural background spanning China, France, Singapore, Japan, and Canada. My work sits at the intersection of strategy, operations, and technical analytics.", '#about .intro-copy p:nth-child(2)':'From Python-driven supply chain optimization at Xiaomi France to market research and strategic growth initiatives in Singapore, I turn complex business problems into practical, measurable decisions.', '#about .button-link':'Start a conversation',
@@ -315,44 +378,61 @@
           ,'.topbar nav a:nth-child(1)':'Skills', '.topbar nav a:nth-child(2)':'Experience', '.topbar nav a:nth-child(3)':'Education', '.topbar nav a:nth-child(4)':'Map', '.topbar nav a:nth-child(5)':'Contact', '.language-heading span:nth-child(2)':'04 channels active', '#education .education-note':'ESSEC 3-campus program: France, Singapore, Morocco · Dual-degree exchange at Keio University, Tokyo.', '#profile .profile-panel:nth-child(3) .activity-copy':'<strong>ESSEC Dance Crew & Keio Revolve — Vice President</strong><br>2021 — 2025<br>Led a 20+ member dance association across two countries; organized competitions, produced social media content, and recruited new talent.', '#profile .profile-panel:nth-child(4) .activity-copy':'<strong>Risk thinking</strong><br>Following markets, portfolio risk, and behavioral finance<br><strong>Supply chain systems</strong><br>Exploring how operations, people, and data move across borders<br><strong>Cross-cultural leadership</strong><br>Dance / 13 years · 25 countries explored'
         },
         fr: {
-          '.hero .eyebrow':'Chaîne d\'approvisionnement & analyse de données / Montréal — 2026', '.hero .hero-bottom':'Analyste d\'affaires quadrilingue qui transforme la complexité opérationnelle en décisions claires et en systèmes utiles.', '.hero .portrait-meta':'<span>IDENTITÉ 001</span> / ALEX ZHAO<br>ANALYSTE D\'AFFAIRES QUADRILINGUE', '.scroll-note':'Faire défiler pour explorer',
-          '#profile .section-kicker':'01 / Compétences & signaux', '#profile .section-index':'Outils, preuves et énergie', '#profile .profile-panel:nth-child(1) h3':'Compétences techniques', '#profile .profile-panel:nth-child(3) h3':'Certifications', '#profile .profile-panel:nth-child(4) h3':'Intérêts à valeur analytique', '#profile .career-focus h3':'Postes ciblés', '#profile .career-focus p':'Intérêt pour des postes de Target Risk Analyst et Supply Chain Analyst, où les signaux de risque, les systèmes opérationnels et l’analyse technique soutiennent de meilleures décisions.',
+          '.hero .eyebrow':'Chaîne d\'approvisionnement & analyse de données / Montréal — 2026', '.hero h1':'Perspective<br />mondiale.<br /><em>Clarté des données.</em>', '.hero .hero-bottom':'Analyste d\'affaires quadrilingue qui transforme la complexité opérationnelle en décisions claires et en systèmes utiles.', '.hero .portrait-meta':'<span>IDENTITÉ 001</span> / ALEX ZHAO<br>ANALYSTE D\'AFFAIRES QUADRILINGUE', '.scroll-note':'Faire défiler pour explorer',
+          '#profile .section-kicker':'01 / Compétences & signaux', '#profile .section-index':'Outils, preuves et énergie', '#profile .profile-panel:nth-child(1) h3':'Compétences techniques', '#profile .profile-panel:nth-child(3) h3':'Certifications', '#profile .profile-panel:nth-child(4) h3':'Intérêts à valeur analytique', '#profile .career-focus h3':'Postes ciblés', '#profile .career-focus p':'Intérêt pour des postes d’analyste en gestion des risques et en chaîne d’approvisionnement, où les signaux de risque, les systèmes opérationnels et l’analyse technique soutiennent de meilleures décisions.',
           '#work .section-kicker':'02 / Expérience professionnelle', '#work .section-index':'Quand l’analyse devient action', '#projects .section-kicker':'03 / Projets sélectionnés', '#projects .section-index':'Recherche, risque & analytique appliquée', '#education .section-kicker':'04 / Formation', '#education .section-index':'Trois façons d’apprendre', '#about .section-kicker':'05 / La personne derrière les chiffres', '#about .section-index':'À propos', '#travel .section-kicker':'06 / Carnet de voyage', '#travel .section-index':'Les lieux qui ont façonné mon regard', '#contact .section-kicker':'08 / Prochaine étape', '#contact .section-index':'Créons quelque chose d\'utile',
-          '#about h2':'Curieux par nature.<br><span>Analytique par pratique.</span>', '#about .intro-copy p:nth-child(1)':"Je suis Alex Zhao, analyste d'affaires quadrilingue et candidat au Master of Management Analytics de McGill. Mon travail se situe à l'intersection des chaînes d'approvisionnement, des données et des décisions humaines.", '#about .intro-copy p:nth-child(2)':"De l'automatisation Python chez Xiaomi France aux études de marché chez HelloRide Global, je transforme l'analyse en résultats opérationnels et commerciaux mesurables.", '#about .button-link':'Entamer une conversation',
+          '#about h2':'Curieux par nature.<br><span>Analytique par pratique.</span>', '#about .intro-copy p:nth-child(1)':"Je suis Alex Zhao, analyste d'affaires quadrilingue et candidat à la maîtrise en analytique de gestion de McGill. Mon travail se situe à l'intersection des chaînes d'approvisionnement, des données et des décisions humaines.", '#about .intro-copy p:nth-child(2)':"De l'automatisation Python chez Xiaomi France aux études de marché chez HelloRide Global, je transforme l'analyse en résultats opérationnels et commerciaux mesurables.", '#about .button-link':'Entamer une conversation',
           '.language-heading span:nth-child(1)':'Profil linguistique / en direct', '#travel .travel-count-label':'Pays visités', '#travel .travel-list h3':'Notes de terrain<br>à travers le monde.', '#travel .global-perspective':'Mes voyages m’ont donné une perspective internationale : je comprends les problèmes à travers différentes cultures, marchés et façons de penser.', '#travel .map-caption span:nth-child(1)':'PAYS VISITÉS / 25', '#travel .map-caption span:nth-child(2)':'DONNÉES : ALEX ZHAO', '#leadership .section-kicker':'06 / Leadership', '#leadership .section-index':'Diriger entre les cultures', '#leadership .experience-subtitle':'Vice-président', '#leadership .experience-points li:nth-child(1)':'Direction d’une association de danse de plus de 20 membres en France et au Japon.', '#leadership .experience-points li:nth-child(2)':'Organisation de compétitions, création de contenu pour les réseaux sociaux et recrutement de nouveaux talents.', '#contact h2':'Une bonne<br><span>question ?</span>', '#contact .button-link':'qichao.zhao@mail.mcgill.ca'
-          ,'.topbar nav a:nth-child(1)':'Compétences', '.topbar nav a:nth-child(2)':'Expérience', '.topbar nav a:nth-child(3)':'Formation', '.topbar nav a:nth-child(4)':'Carte', '.topbar nav a:nth-child(5)':'Contact', '.language-heading span:nth-child(2)':'04 langues actives', '#education .education-note':'Programme ESSEC sur 3 campus : France, Singapour, Maroc · Échange en double diplôme à Keio University, Tokyo.', '#profile .profile-panel:nth-child(3) .activity-copy':'<strong>ESSEC Dance Crew & Keio Revolve — Vice-président</strong><br>2021 — 2025<br>Direction d’une association de danse de plus de 20 membres dans deux pays ; organisation de compétitions et création de contenu.', '#profile .profile-panel:nth-child(4) .activity-copy':'<strong>Réflexion sur le risque</strong><br>Marchés, risque de portefeuille et finance comportementale<br><strong>Systèmes de chaîne d’approvisionnement</strong><br>Opérations, personnes et données au-delà des frontières<br><strong>Leadership interculturel</strong><br>Danse / 13 ans · 25 pays visités'
+          ,'.topbar nav a:nth-child(1)':'Compétences', '.topbar nav a:nth-child(2)':'Expérience', '.topbar nav a:nth-child(3)':'Formation', '.topbar nav a:nth-child(4)':'Carte', '.topbar nav a:nth-child(5)':'Contact', '.language-heading span:nth-child(2)':'04 langues actives', '#education .education-note':'Programme ESSEC sur 3 campus : France, Singapour, Maroc · Échange en double diplôme à l’Université Keio, Tokyo.', '#profile .profile-panel:nth-child(3) .activity-copy':'<strong>ESSEC Dance Crew & Keio Revolve — Vice-président</strong><br>2021 — 2025<br>Direction d’une association de danse de plus de 20 membres dans deux pays ; organisation de compétitions et création de contenu.', '#profile .profile-panel:nth-child(4) .activity-copy':'<strong>Réflexion sur le risque</strong><br>Marchés, risque de portefeuille et finance comportementale<br><strong>Systèmes de chaîne d’approvisionnement</strong><br>Opérations, personnes et données au-delà des frontières<br><strong>Leadership interculturel</strong><br>Danse / 13 ans · 25 pays visités'
         }
       };
       const setText = (selector, value) => { const element = document.querySelector(selector); if (element) element.innerHTML = value; };
       const setList = (selector, values) => document.querySelectorAll(selector).forEach((element, index) => { if (values[index] !== undefined) element.innerHTML = values[index]; });
       const applyLanguage = (language) => {
+        const graderEntry = document.querySelector('#work .grader-experience');
+        if (graderEntry) document.querySelector('#work').appendChild(graderEntry);
         Object.entries(translations[language]).forEach(([selector, value]) => setText(selector, value));
         setText('#about .intro-copy p:nth-child(2)', language === 'fr' ? "Je m'intéresse particulièrement à l'analytique du risque de crédit : évaluer la qualité du crédit, transformer les données financières en signaux de risque pertinents et construire des analyses transparentes pour soutenir les décisions de prêt, de portefeuille et d'affaires." : "I'm especially interested in credit risk analytics: assessing credit quality, translating financial data into meaningful risk signals, and building transparent analysis that supports lending, portfolio, and business decisions.");
         const isFrench = language === 'fr';
         setList('#profile .skill-line span', isFrench ? ['Intermédiaire', 'Avancé', 'Intermédiaire', 'Avancé', 'Connaissances pratiques'] : ['Intermediate', 'Advanced', 'Intermediate', 'Advanced', 'Working knowledge']);
         setList('#about .language-name', isFrench ? ['Chinois', 'Anglais', 'Français', 'Japonais'] : ['Chinese', 'English', 'French', 'Japanese']);
         setList('#about .language-level', isFrench ? ['Langue maternelle', 'Bilingue · IELTS 7.5', 'Avancé · DELF B2', 'Avancé · JLPT N2'] : ['Native', 'Bilingual · IELTS 7.5', 'Advanced · DELF B2', 'Advanced · JLPT N2']);
-        setList('#about .stat span', isFrench ? ['Langues parlées', 'Distribution BOM plus rapide', 'Pays explorés'] : ['Languages spoken', 'Faster BOM distribution', 'Countries explored']);
+        setList('#about .stat span', isFrench ? ['Langues parlées', 'Secteurs d’activité clés', 'Pays explorés'] : ['Languages spoken', 'Core industries', 'Countries explored']);
         setList('#travel .country-list span', isFrench ? ['Chine', 'Japon', 'Thaïlande', 'Hong Kong', 'Singapour', 'Macao', 'Canada', 'France', 'Belgique', 'Pays-Bas', 'Suède', 'Norvège', 'Danemark', 'Monaco', 'Italie', 'Espagne', 'Vatican', 'Roumanie', 'Autriche', 'Suisse', 'Allemagne', 'Lettonie', 'Tchéquie', 'Pologne', 'Hongrie'] : ['China', 'Japan', 'Thailand', 'Hong Kong', 'Singapore', 'Macau', 'Canada', 'France', 'Belgium', 'Netherlands', 'Sweden', 'Norway', 'Denmark', 'Monaco', 'Italy', 'Spain', 'Vatican City', 'Romania', 'Austria', 'Switzerland', 'Germany', 'Latvia', 'Czechia', 'Poland', 'Hungary']);
         setList('#education .education-program', isFrench ? ['Master en analytique de gestion (MMA)', 'BBA international, administration des affaires', 'Échange en double diplôme / commerce'] : ['Master of Management Analytics (MMA)', 'Global BBA, Business Administration', 'Dual-degree exchange / Business']);
         setList('#education .education-detail span:first-child', isFrench ? ['Montréal, Canada', 'Paris · Singapour · Maroc', 'Tokyo, Japon'] : ['Montreal, Canada', 'Paris · Singapore · Morocco', 'Tokyo, Japan']);
-        setList('#projects .experience-date', ['Sep 2026 — Present', 'Sep 2026 — Present', 'Sep 2026 — Present', 'Sep 2026 — Apr 2027']);
-        setList('#projects .experience-title', isFrench ? ['Thèse d’achat à 10 ans sur Tesla', 'Construction d’un portefeuille market-neutral', 'Solution d’IA générative pour ALDO', 'Rio Tinto Aluminium & Lithium'] : ['Tesla 10-year BUY thesis', 'Market-neutral portfolio construction', 'ALDO retail AI solution', 'Rio Tinto Aluminium & Lithium']);
+        setList('#projects .experience-date', isFrench ? ['Sept. 2026 — Aujourd’hui', 'Sept. 2026 — Aujourd’hui', 'Sept. 2026 — Aujourd’hui', 'Sept. 2026 — Avr. 2027'] : ['Sep 2026 — Present', 'Sep 2026 — Present', 'Sep 2026 — Present', 'Sep 2026 — Apr 2027']);
+        setList('#projects .experience-title', isFrench ? ['Thèse d’achat à 10 ans sur Tesla', 'Construction d’un portefeuille neutre au marché', 'Solution d’IA générative pour ALDO', 'Rio Tinto Aluminium & Lithium'] : ['Tesla 10-year BUY thesis', 'Market-neutral portfolio construction', 'ALDO retail AI solution', 'Rio Tinto Aluminium & Lithium']);
         setList('#projects .experience-subtitle', isFrench ? ['Participant · Challenge d’investissement CNID · Sept. 2026 — Aujourd’hui', 'McGill Desautels · Participant · Hackathon FIAM · Sept. 2026 — Aujourd’hui', 'Hackathon McGill Retail GenAI · Bensadoun School × ALDO Group × AWS', 'Capstone MMA de McGill · Chef d’équipe & consultant en analytique des données · Montréal, QC'] : ['Round 1 participant · CNID Investment Challenge · Sep 2026 — Present', 'McGill Desautels · Participant · FIAM Asset Management Hackathon · Sep 2026 — Present', 'McGill Retail GenAI Hackathon · Bensadoun School × ALDO Group × AWS', 'McGill MMA Capstone · Team Lead & Data Analytics Consultant · Montreal, QC']);
+        setList('#projects .project-tag', isFrench ? ['Recherche actions · Challenge d’investissement CNID', 'Gestion d’actifs · Hackathon FIAM', 'IA générative · Technologie retail', 'Conseil Data & IA · Industrie minière'] : ['Equity research · CNID Investment Challenge', 'Asset management · FIAM Hackathon', 'Generative AI · Retail technology', 'Data & AI consulting · Mining']);
         setList('#projects .experience-points li', isFrench ? ['Rédaction d’un rapport de recherche actions sur Tesla avec un DCF à 10 ans, vérifié par une analyse par somme des parties et des scénarios baissier, central et haussier pondérés par probabilité.', 'Analyse du mix de revenus, de la résilience des flux de trésorerie, de l’avantage concurrentiel, de l’exposition ESG et des risques clés à partir des rapports 10-K et 10-Q.', 'Construction d’un portefeuille market-neutral de 100 à 500 actions américaines avec des données fondamentales et alternatives, ainsi que des signaux de machine learning et de NLP.', 'Préparation d’un rapport de recherche et d’une présentation d’investissement reliant les signaux quantitatifs au risque et au rendement du portefeuille.', 'Conception d’une solution d’IA générative pour un cas d’usage retail d’ALDO avec les outils AWS AI/ML.', 'Transformation d’un problème commercial en concept de produit analytique pratique et évolutif.', 'Pilotage d’un engagement d’environ 1 000 heures avec l’équipe Data & AI de Rio Tinto pour remplacer des initiatives chatbot dupliquées par une plateforme Databricks réutilisable.', 'Conception d’un assistant IA répondant aux questions des ingénieurs et responsables de sites à partir de documents approuvés, avec citations traçables, accès gouverné et boucle de feedback.', 'Création d’un module d’évaluation de la qualité des réponses, des citations et des cas d’échec, avec documentation d’une architecture standard et de recommandations de déploiement.'] : ['Authored an equity research report on Tesla using a 10-year DCF cross-checked with sum-of-the-parts and probability-weighted bear, base, and bull scenarios.', 'Analyzed revenue mix, cash-flow defensiveness, competitive moat, ESG exposure, and key risks from 10-K and 10-Q filings.', 'Building a market-neutral portfolio of 100–500 US equities using fundamental and alternative data with machine-learning and NLP signals.', 'Preparing a research report and investment deck for the finalist round, linking quantitative signals to portfolio risk and return.', 'Designing a generative-AI solution for an ALDO retail use case using AWS AI/ML tools.', 'Translating a business problem into a practical, scalable analytics product concept.', 'Leading a ~1,000-hour engagement with Rio Tinto’s Data & AI team to replace duplicated chatbot initiatives with one reusable Databricks platform.', 'Designing a proof-of-concept AI assistant that answers engineers’ and site managers’ questions from approved documents with traceable citations, governed access, and a user feedback loop.', 'Building an evaluation module for answer quality, citation quality, and failure cases; documenting a standard architecture and scaling recommendations for other product lines.']);
-        setList('#work .experience-subtitle', isFrench ? ['Stagiaire après-vente & chaîne d’approvisionnement', 'Programme de gestion d’actifs institutionnels', 'Stagiaire marketing'] : ['Aftersales & Supply Chain Intern', 'Institutional Asset Management Program', 'Marketing Intern']);
+        setList('#work .experience-subtitle', isFrench ? ['Stagiaire après-vente & chaîne d’approvisionnement', 'Programme de gestion d’actifs institutionnels', 'Stagiaire marketing', 'Correcteur — FINE 441 (Gestion des investissements)'] : ['Aftersales & Supply Chain Intern', 'Institutional Asset Management Program', 'Marketing Intern', 'Grader — FINE 441 (Investment Management)']);
+        if (isFrench) {
+          document.querySelectorAll('#projects .experience-points li').forEach((element) => { element.innerHTML = element.innerHTML.replace('market-neutral', 'neutre au marché').replace('machine learning', 'apprentissage automatique').replace('NLP', 'traitement du langage naturel').replace('retail', 'commerce de détail').replace('Data & AI', 'Données & IA').replace('chatbot', 'robot conversationnel').replace('feedback', 'retours').replace('de apprentissage', 'd’apprentissage'); });
+          document.querySelectorAll('#projects .project-tag, #projects .project-subtitle').forEach((element) => { element.innerHTML = element.innerHTML.replace('Technologie retail', 'Technologie du commerce de détail').replace('Retail GenAI', 'IA générative pour le commerce de détail').replace('Capstone', 'Projet intégrateur').replace('Data & AI', 'Données & IA').replace('AWS AI/ML', 'outils AWS d’IA et d’apprentissage automatique'); });
+        }
+        setList('#work .experience-title', isFrench ? ['Xiaomi France / Paris, France', 'Expérience Insight BlackRock / Tokyo, Japon', 'HelloRide Global / Singapour', 'Université McGill — Faculté de gestion Desautels'] : ['Xiaomi France / Paris, France', 'BlackRock Insight Experience / Tokyo, Japan', 'HelloRide Global / Singapore', 'McGill University — Desautels Faculty of Management']);
+        setList('#work .experience-date', isFrench ? ['Juil. — Déc. 2025', 'Mai 2024', 'Juin — Sept. 2022', '<span>Montréal, QC</span><span>Sept. 2026 — Aujourd’hui</span>'] : ['Jul — Dec 2025', 'May 2024', 'Jun — Sep 2022', '<span>Montreal, QC</span><span>Sep 2026 — Present</span>']);
+        setList('#travel .map-legend div', isFrench ? ['Pays visité', 'Marqueur de ville / territoire'] : ['Country visited', 'City / territory marker']);
+        setText('#projects .project-link', isFrench ? 'Voir le rapport de recherche actions PDF ↗' : 'View equity research PDF ↗');
+        setText('#travel .travel-count-label', isFrench ? 'Pays visités' : 'Countries visited');
+        setText('#travel .map-caption span:nth-child(2)', isFrench ? 'DONNÉES : ALEX ZHAO' : 'DATASET: ALEX ZHAO');
+        document.title = isFrench ? 'Alex Zhao | Stratégie multiculturelle & analytique' : 'Alex Zhao | Multicultural Strategy & Analytics';
+        document.querySelector('meta[name="description"]').setAttribute('content', isFrench ? 'Alex Zhao — stratégie multiculturelle, analytique d’affaires, opérations interculturelles et analyse technique.' : 'Alex Zhao — multilingual strategy, business analytics, cross-cultural operations, and technical analytics.');
+        document.body.dataset.language = language;
         setList('#profile .cert-list > div', isFrench ? ['Bloomberg Market Concepts<span>Bloomberg</span>', 'Structures de données Python<span>Université du Michigan</span>', 'Fonds communs & investissement systématique<span>Franklin Templeton</span>', 'Finance comportementale<span>Université Duke</span>', 'Prix d’argent en investissement<span>LIBF</span>'] : ['Bloomberg Market Concepts<span>Bloomberg</span>', 'Python Data Structures<span>University of Michigan</span>', 'Mutual Funds & Systematic Investing<span>Franklin Templeton</span>', 'Behavioral Finance<span>Duke University</span>', 'Investment Silver Award<span>LIBF</span>']);
         setList('#work .experience-points li', isFrench ? [
           'Développement d’un script Python pour distribuer les nomenclatures entre Xiaomi HQ, la France et plus de 10 stations, avec un gain de 37%.', 'Suivi WIP sur Excel et coordination logistique avec des partenaires français et espagnols, réduisant les délais de 8 à 3 jours (62%).', 'Création de tableaux de bord Power BI pour analyser les fonctionnalités produits et la performance après-vente.', 'Étude concurrentielle de Samsung, Daikin et Hisense afin d’identifier des opportunités fournisseurs.',
           'Sélectionné pour un programme compétitif en gestion d’actifs institutionnels.', 'Étude de cas sur la gestion des retraites japonaises, l’allocation stratégique et l’investissement guidé par les passifs.', 'Découverte de la construction de portefeuille et de l’analyse des risques via la plateforme Aladdin.',
-          'Analyse des concurrents et du marché pour la stratégie de contenu, avec une croissance Instagram de 0 à 2 000 abonnés en quatre mois.', 'Analyse des données clients avec les tableaux croisés dynamiques et RECHERCHEV, améliorant les utilisateurs actifs mensuels de 32%.', 'Obtention d’un partenariat B2B avec Huttons, d’une valeur de 100 M SGD, grâce à des réunions avec les autorités singapouriennes.'
+          'Analyse des concurrents et du marché pour la stratégie de contenu, avec une croissance Instagram de 0 à 2 000 abonnés en quatre mois.', 'Analyse des données clients avec les tableaux croisés dynamiques et RECHERCHEV, améliorant les utilisateurs actifs mensuels de 32%.', 'Obtention d’un partenariat B2B avec Huttons, d’une valeur de 100 M SGD, grâce à des réunions avec les autorités singapouriennes.', 'Évaluation de plus de 100 travaux et modèles financiers étudiants couvrant l’évaluation DCF, le CAPM, la valorisation obligataire et l’optimisation de portefeuille.', 'Fourniture de retours structurés sur les analyses actions et les calculs de gestion des risques des étudiants.'
         ] : [
           'Developed a Python automation script for BOM distribution across Xiaomi HQ, France, and 10+ service stations, reducing turnaround time by 3 days (37%).', 'Managed Excel-based WIP tracking and daily logistics coordination across French and Spanish partners, cutting average delay from 8 to 3 days (62%).', 'Built Power BI dashboards for cross-brand product feature and aftersales performance analysis.', 'Conducted competitive supply chain research on Samsung, Daikin, and Hisense to identify supplier collaboration opportunities.',
           'Selected for a competitive program on institutional asset management.', 'Completed a team case study on Japanese pension fund management, strategic asset allocation, and liability-driven investment in a low-yield, aging-demographic environment.', 'Gained exposure to portfolio construction and risk analytics via the Aladdin platform.',
-          'Analyzed competitor strategies and market research to inform content strategy, growing Instagram from 0 to 2,000 followers in 4 months.', 'Used Excel pivot tables and VLOOKUP to identify market trends and user needs, improving monthly active users by 32%.', 'Secured a B2B market cooperation partnership with Huttons valued at SGD 100M through Singapore government liaison meetings.'
+          'Analyzed competitor strategies and market research to inform content strategy, growing Instagram from 0 to 2,000 followers in 4 months.', 'Used Excel pivot tables and VLOOKUP to identify market trends and user needs, improving monthly active users by 32%.', 'Secured a B2B market cooperation partnership with Huttons valued at SGD 100M through Singapore government liaison meetings.', 'Evaluated 100+ student assignments and financial models covering DCF valuation, CAPM, bond pricing and portfolio optimization.', 'Provided structured feedback on students’ equity analysis and risk management calculations.'
         ]);
         document.querySelectorAll('[data-language]').forEach((button) => button.classList.toggle('active', button.dataset.language === language));
         document.documentElement.lang = language;
+        if (graderEntry) document.querySelector('#work').insertBefore(graderEntry, document.querySelector('#work .experience-entry'));
       };
       document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.language)));
       applyLanguage('en');
