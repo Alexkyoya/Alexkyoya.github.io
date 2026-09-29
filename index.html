@@ -437,5 +437,125 @@
       document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => applyLanguage(button.dataset.language)));
       applyLanguage('en');
     </script>
+    <script>
+      const latestResume = {
+        en: {
+          heroEyebrow: 'Credit risk modeling & model validation / Montreal - 2026',
+          heroBottom: 'Bilingual MMA candidate combining credit risk analytics, model validation, Python, SQL, and machine learning with practical experience across finance, operations, and AI.',
+          aboutHeading: 'Credit risk.<br /><span>Clear decisions.</span>',
+          aboutOne: "I'm Alex Zhao, a bilingual MMA candidate at McGill with a 4.0/4.0 GPA and a focus on credit risk modeling and model validation.",
+          aboutTwo: 'I build transparent, practical analyses: from a probability-of-default model and approval simulator to governed AI systems and financial model review.',
+          workHead: '02 / Professional experience',
+          workIndex: 'Risk, analytics & execution',
+          projectsHead: '03 / Analytics & finance projects',
+          projectsIndex: 'Models, research & applied AI',
+          educationNote: 'ESSEC Global BBA: Paris and Singapore · Keio University exchange, Tokyo, selected on academic standing (top 10% eligibility).',
+          focus: 'Interested in credit risk modeling, model validation, and quantitative analytics roles where transparent models support better lending and portfolio decisions.',
+          work: [
+            ['Rio Tinto - Aluminium & Lithium / Montreal, QC', 'Team Lead & Data Analytics Consultant · McGill MMA Capstone', 'Sep 2026 - Apr 2027', ['Leading a ~1,000-hour engagement with Rio Tinto Data & AI and four client stakeholders.', 'Designing a governed Databricks AI agent grounded in decades of historical data across all business units, with traceable outputs.', 'Preparing an evaluation framework covering answer accuracy, citation quality, and failure cases before recommendation use.']],
+            ['McGill University - Desautels Faculty of Management / Montreal, QC', 'Grader - FINE 441 (Investment Management)', 'Sep 2026 - Present', ['Reviewed 100+ student financial models covering bond pricing, DCF, CAPM, and portfolio optimization.', 'Provided structured feedback on risk management calculations and equity analysis.']],
+            ['Xiaomi France / Paris, France', 'Aftersales & Supply Chain Intern', 'Jul 2025 - Dec 2025', ['Automated bill-of-materials distribution across Xiaomi HQ, France, and 10+ service stations with Python, cutting turnaround time by 3 days (37%).', 'Owned the Excel WIP tracker across partners and reduced average repair delay from 8 to 3 days (62%).', 'Built Power BI dashboards used in weekly aftersales performance decisions.']],
+            ['BlackRock Insight Program / Tokyo, Japan', 'Institutional Asset Management', 'May 2024', ['Led a case study on a Japanese pension fund\'s asset allocation and LDI strategy under low yields and an aging population.', 'Gained exposure to fixed income risk analytics and portfolio construction on Aladdin.']]
+          ],
+          projects: [
+            ['Credit risk · Python / scikit-learn', 'Traffic Light Credit Decisions - PD Model & Approval Strategy', 'Sep 2026', ['Built a probability-of-default model on 133K Lending Club loans with out-of-time validation (train 2010-2012, test 2013).', 'Detected selection bias and retained an explainable logistic regression over LightGBM using a champion-challenger approach.', 'Designed green / yellow / red approval rules with reason codes and an interactive simulator for automation, default rates, and losses by threshold.'], 'alexkyoya.github.io/traffic-light-credit/app/'],
+            ['Asset management · FIAM Hackathon', 'Market-neutral portfolio construction', 'Sep 2026 - Present', ['Developing machine-learning and NLP signals for a market-neutral portfolio of 100-500 US equities.']],
+            ['Fundamental research · CNID Investment Challenge 2026/2027', 'Tesla 10-year BUY thesis', 'Sep 2026 - Present', ['Building a 10-year BUY thesis from 10-K and 10-Q filings, with DCF cross-checked against SOTP and weighted scenarios.', 'Analyzing downside risk, revenue composition, and cash-flow resilience.']]
+          ]
+        },
+        fr: {
+          heroEyebrow: 'Modélisation du risque de crédit & validation de modèles / Montréal - 2026',
+          heroBottom: 'Candidat bilingue à la MMA, combinant analytique du risque de crédit, validation de modèles, Python, SQL et apprentissage automatique avec une expérience en finance, opérations et IA.',
+          aboutHeading: 'Risque de crédit.<br /><span>Décisions claires.</span>',
+          aboutOne: "Je suis Alex Zhao, candidat bilingue à la MMA de McGill, avec une moyenne de 4,0/4,0 et un intérêt pour la modélisation du risque de crédit et la validation de modèles.",
+          aboutTwo: "Je construis des analyses transparentes et concrètes : d'un modèle de probabilité de défaut et son simulateur à des systèmes d'IA gouvernés et à la révision de modèles financiers.",
+          workHead: '02 / Expérience professionnelle',
+          workIndex: 'Risque, analytique & exécution',
+          projectsHead: '03 / Projets en analytique et finance',
+          projectsIndex: 'Modèles, recherche & IA appliquée',
+          educationNote: 'Global BBA à l’ESSEC : Paris et Singapour · Échange à l’Université Keio, Tokyo, sélectionné sur la base du dossier scolaire (top 10 %).',
+          focus: 'Intérêt pour les postes en modélisation du risque de crédit, validation de modèles et analytique quantitative, où des modèles transparents soutiennent de meilleures décisions de crédit et de portefeuille.',
+          work: [
+            ['Rio Tinto - Aluminium et Lithium / Montréal, QC', 'Chef d’équipe et consultant en analytique de données · Projet intégrateur MMA McGill', 'Sept. 2026 - Avr. 2027', ['Dirige un mandat d’environ 1 000 heures avec l’équipe Données et IA de Rio Tinto et quatre parties prenantes.', 'Conçoit un agent Databricks gouverné, alimenté par des décennies de données historiques de toutes les unités d’affaires, avec des réponses traçables.', 'Prépare un cadre d’évaluation couvrant l’exactitude, la qualité des citations et les cas d’échec avant l’utilisation des recommandations.']],
+            ['Université McGill - Faculté de gestion Desautels / Montréal, QC', 'Correcteur - FINE 441 (Gestion de placements)', 'Sept. 2026 - aujourd’hui', ['Révise plus de 100 modèles financiers portant sur les obligations, le DCF, le MEDAF et l’optimisation de portefeuille.', 'Fournit une rétroaction structurée sur les calculs de gestion des risques et les analyses d’actions.']],
+            ['Xiaomi France / Paris, France', 'Stagiaire, service après-vente et chaîne d’approvisionnement', 'Juill. 2025 - Déc. 2025', ['Automatise la distribution des nomenclatures entre le siège, Xiaomi France et plus de 10 centres avec Python, réduisant le traitement de 3 jours (37 %).', 'Gère le suivi Excel des travaux en cours et réduit le délai moyen de réparation de 8 à 3 jours (62 %).', 'Conçoit des tableaux de bord Power BI utilisés pour les décisions hebdomadaires de performance après-vente.']],
+            ['Programme Insight de BlackRock / Tokyo, Japon', 'Gestion d’actifs institutionnels', 'Mai 2024', ['Dirige une étude de cas sur l’allocation d’actifs et la stratégie LDI d’une caisse de retraite japonaise dans un contexte de taux bas et de vieillissement.', 'Découvre l’analyse des risques de titres à revenu fixe et la construction de portefeuille sur Aladdin.']]
+          ],
+          projects: [
+            ['Risque de crédit · Python / scikit-learn', 'Feu vert, feu jaune, feu rouge - Modèle de PD et stratégie d’approbation', 'Sept. 2026', ['Construit un modèle de probabilité de défaut sur 133 000 prêts Lending Club avec validation hors période (entraînement 2010-2012, test 2013).', 'Détecte un biais de sélection et retient une régression logistique explicable face à LightGBM selon une approche champion-challenger.', 'Conçoit des règles d’approbation vert / jaune / rouge avec raisons de décision et simulateur interactif des seuils, défauts et pertes.'], 'alexkyoya.github.io/traffic-light-credit/app/'],
+            ['Gestion d’actifs · Hackathon FIAM', 'Construction d’un portefeuille neutre au marché', 'Sept. 2026 - aujourd’hui', ['Développe des signaux d’apprentissage automatique et de TALN pour un portefeuille neutre au marché de 100 à 500 actions américaines.']],
+            ['Recherche fondamentale · CNID Investment Challenge 2026-2027', 'Thèse d’achat à 10 ans sur Tesla', 'Sept. 2026 - aujourd’hui', ['Élabore une thèse d’achat à 10 ans à partir des rapports 10-K et 10-Q, avec un DCF recoupé par une SOTP et des scénarios pondérés.', 'Analyse les risques baissiers, la composition des revenus et la résilience des flux de trésorerie.']]
+          ]
+        }
+      };
+
+      const latestEntry = (entry, isProject = false) => `<div class="experience-entry reveal"><div class="experience-top"><div>${isProject ? `<span class="project-tag">${entry[0]}</span>` : ''}<h3 class="experience-title ${isProject ? 'project-title' : ''}">${entry[1]}</h3><p class="experience-subtitle">${isProject ? '' : entry[0]}</p></div><span class="experience-date">${entry[2]}</span></div><ul class="experience-points">${entry[3].map((point) => `<li>${point}</li>`).join('')}</ul>${entry[4] ? `<a class="project-link" href="https://${entry[4]}" target="_blank" rel="noreferrer">View live simulator ↗</a>` : ''}</div>`;
+      const renderLatestResume = (language) => {
+        const content = latestResume[language];
+        document.querySelector('.hero .eyebrow').textContent = content.heroEyebrow;
+        document.querySelector('.hero .hero-bottom').textContent = content.heroBottom;
+        document.querySelector('#about h2').innerHTML = content.aboutHeading;
+        document.querySelector('#about .intro-copy p:nth-child(1)').textContent = content.aboutOne;
+        document.querySelector('#about .intro-copy p:nth-child(2)').textContent = content.aboutTwo;
+        document.querySelector('#education .education-note').textContent = content.educationNote;
+        document.querySelector('#profile .career-focus p').textContent = content.focus;
+        const fiamProject = document.querySelectorAll('#projects .experience-entry')[1];
+        if (fiamProject) {
+          const fiamTitle = fiamProject.querySelector('.experience-title');
+          const fiamSubtitle = fiamProject.querySelector('.experience-subtitle');
+          const fiamPoints = fiamProject.querySelectorAll('.experience-points li');
+          fiamTitle.textContent = language === 'fr' ? 'Stratégie actions américaines market-neutral' : 'US Equity Market-Neutral Strategy';
+          fiamSubtitle.textContent = language === 'fr' ? 'Hackathon FIAM · McGill Desautels · Modélisation quantitative' : 'FIAM Asset Management Hackathon · McGill Desautels · Quantitative modeling';
+          const fiamDescription = language === 'fr' ? [
+            'Développe une stratégie long/short sur actions américaines avec des arbres de gradient boosting appliqués à 147 caractéristiques.',
+            'Résidualise le score par secteur, taille et beta, puis construit un portefeuille de 200 titres (100 longs / 100 shorts) avec 200 % d’exposition brute et +12,5 % nette.',
+            'Obtient un ratio d’information de +0,88 avant coûts et +0,71 après 20 points de base, avec un beta de -0,159 et une perte maximale mensuelle de -6,53 % sur 2021-01 à 2026-08.'
+          ] : [
+            'Developed a long/short US equity strategy using gradient-boosted trees on 147 firm characteristics.',
+            'Residualised forecasts by sector, size, and beta, then built a 200-name book (100 long / 100 short) with 200% gross and +12.5% net exposure.',
+            'Achieved a +0.88 information ratio before costs and +0.71 after 20 bps, with -0.159 beta and -6.53% maximum monthly drawdown over 2021-01 to 2026-08.'
+          ];
+          fiamPoints.forEach((point, index) => { point.textContent = fiamDescription[index]; });
+        }
+        const projectsSection = document.querySelector('#projects');
+        let trafficProject = projectsSection.querySelector('.latest-traffic-project');
+        if (!trafficProject) {
+          trafficProject = document.createElement('div');
+          trafficProject.className = 'experience-entry reveal latest-traffic-project';
+          projectsSection.insertBefore(trafficProject, projectsSection.querySelector('.experience-entry'));
+          observer.observe(trafficProject);
+        }
+        const trafficProjectContent = language === 'fr' ? {
+          tag: 'Risque de crédit · Python / scikit-learn',
+          title: 'Feu vert, feu jaune, feu rouge - Modèle de PD et stratégie d’approbation',
+          subtitle: 'Modélisation du risque de crédit · Simulateur interactif',
+          date: 'Sept. 2026',
+          points: [
+            'Modèle de probabilité de défaut sur 133 000 prêts personnels Lending Club, validé hors période (entraînement 2010-2012, test 2013); biais de sélection détecté et corrigé, avec une régression logistique explicable retenue face à LightGBM.',
+            'Stratégie d’approbation vert / jaune / rouge avec raisons de décision et simulateur interactif en ligne pour l’automatisation, le taux de défaut et les pertes selon les seuils.'
+          ],
+          link: 'Voir le simulateur interactif ↗'
+        } : {
+          tag: 'Credit risk · Python / scikit-learn',
+          title: 'Traffic Light Credit Decisions - PD Model & Approval Strategy',
+          subtitle: 'Credit risk modeling · Interactive simulator',
+          date: 'Sep 2026',
+          points: [
+            'Built a probability-of-default model on 133K Lending Club personal loans with out-of-time validation (train 2010-2012, test 2013); detected and corrected selection bias, retaining an explainable logistic regression over LightGBM.',
+            'Designed a green / yellow / red approval strategy with reason codes and a live simulator for automation, default rates, and losses by threshold.'
+          ],
+          link: 'View interactive simulator ↗'
+        };
+        trafficProject.innerHTML = `<div class="experience-top"><div><span class="project-tag">${trafficProjectContent.tag}</span><h3 class="experience-title project-title">${trafficProjectContent.title}</h3><p class="experience-subtitle project-subtitle">${trafficProjectContent.subtitle}</p></div><span class="experience-date">${trafficProjectContent.date}</span></div><ul class="experience-points">${trafficProjectContent.points.map((point) => `<li>${point}</li>`).join('')}</ul><a class="project-link" href="https://alexkyoya.github.io/traffic-light-credit/app/" target="_blank" rel="noreferrer">${trafficProjectContent.link}</a>`;
+        const trafficHeader = trafficProject.querySelector('.experience-top > div');
+        const trafficBrand = document.createElement('div');
+        trafficBrand.className = 'project-brand';
+        trafficBrand.innerHTML = '<div class="company-logo project-logo logo-traffic"><img src="traffic-light-risk.svg" alt="Traffic light credit risk gauge" /></div>';
+        trafficBrand.appendChild(trafficHeader);
+        trafficProject.querySelector('.experience-top').prepend(trafficBrand);
+      };
+      document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => renderLatestResume(button.dataset.language)));
+      renderLatestResume('en');
+    </script>
   </body>
 </html>
