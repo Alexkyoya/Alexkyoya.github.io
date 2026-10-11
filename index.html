@@ -212,6 +212,9 @@
       .leadership-section { background:#07131d; }
       .leadership-section .section-head { border-color:var(--line); }
       .leadership-section .section-kicker { color:var(--orange); }
+      .leadership-body { display:grid; grid-template-columns:1fr 200px; gap:32px; align-items:start; }
+      .leadership-video { display:block; width:100%; aspect-ratio:9 / 16; object-fit:cover; border:1px solid var(--line); background:#050d14; }
+      @media (max-width:700px) { .leadership-body { grid-template-columns:1fr; gap:22px; } .leadership-video { max-width:240px; } }
       .projects-section { background:#091722; }
       .project-tag { color:var(--acid); font:10px 'DM Mono',monospace; text-transform:uppercase; letter-spacing:.08em; }
       .project-title { font-size:clamp(1.25rem,2.2vw,2rem); }
@@ -509,7 +512,9 @@
         width:100%;
         height:100%;
         object-fit:cover;
-        object-position:center 12%;
+        object-position:center 22.6%;
+        transform-origin:53.4% 50%;
+        transform:translateX(-3.4%) scale(1.15);
         filter:grayscale(0.08) saturate(1.06) contrast(1.04);
       }
       .mercury-hero .scroll-note {
@@ -522,9 +527,56 @@
         letter-spacing:0.14em;
         text-transform:uppercase;
       }
+      body.intro-active { overflow:hidden; }
+      .intro-overlay {
+        position:fixed;
+        inset:0;
+        z-index:10000;
+        display:grid;
+        place-items:center;
+        overflow:hidden;
+        background:#0A0F1A;
+        opacity:1;
+        transition:opacity .6s ease;
+      }
+      .intro-overlay.is-leaving { opacity:0; }
+      .intro-overlay video {
+        display:block;
+        width:100vw;
+        height:100vh;
+        height:100dvh;
+        object-fit:contain;
+      }
+      .intro-skip {
+        position:absolute;
+        top:max(20px,env(safe-area-inset-top));
+        right:max(20px,env(safe-area-inset-right));
+        z-index:1;
+        border:1px solid rgba(255,255,255,.42);
+        border-radius:2px;
+        padding:9px 13px;
+        background:rgba(10,15,26,.62);
+        color:#fff;
+        cursor:pointer;
+        font:11px 'DM Mono',monospace;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+      }
+      .intro-skip:hover,.intro-skip:focus-visible { border-color:#fff; outline:none; }
+      @media (max-width:700px) {
+        .intro-overlay video { object-fit:cover; }
+        .intro-skip { top:max(14px,env(safe-area-inset-top)); right:max(14px,env(safe-area-inset-right)); }
+      }
     </style>
   </head>
-  <body>
+  <body class="intro-active">
+    <div class="intro-overlay" role="dialog" aria-label="Introduction video">
+      <video autoplay muted playsinline preload="auto" poster="assets/intro/op-intro-poster.jpg" aria-hidden="true">
+        <source src="assets/intro/op-intro.webm" type="video/webm" />
+        <source src="assets/intro/op-intro.mp4" type="video/mp4" />
+      </video>
+      <button class="intro-skip" type="button">Skip</button>
+    </div>
     <div class="cursor"></div>
     <header class="topbar mercury-topbar"><div class="topbar-inner"><a class="logo" href="#top">AZ<span>×</span>26</a><nav aria-label="Primary navigation"><a href="#profile">Skills</a><a href="#work">Experience</a><a href="#education">Education</a><a href="#travel">Map</a><a href="#contact">Contact</a></nav><div class="language-toggle" aria-label="Language switcher"><button class="active" data-language="en">EN</button><button data-language="fr">FR</button></div><div class="menu-dot" aria-label="Available for opportunities"></div></div></header>
     <main id="top">
@@ -535,7 +587,7 @@
       <section class="section work-section" id="work"><div class="section-head"><span class="section-kicker">04 / Professional experience</span><span class="section-index">Multi-industry strategic impact</span></div><div class="experience-entry reveal"><div class="experience-top"><div><h3 class="experience-title">Xiaomi France / Paris, France</h3><p class="experience-subtitle">Aftersales & Supply Chain Intern</p></div><span class="experience-date">Jul — Dec 2025</span></div><ul class="experience-points"><li>Developed a Python automation script for BOM distribution across Xiaomi HQ, France, and 10+ service stations, reducing turnaround time by 3 days (37%).</li><li>Managed Excel-based WIP tracking and daily logistics coordination across French and Spanish partners, cutting average delay from 8 to 3 days (62%).</li><li>Built Power BI dashboards for cross-brand product feature and aftersales performance analysis.</li><li>Conducted competitive supply chain research on Samsung, Daikin, and Hisense to identify supplier collaboration opportunities.</li></ul></div><div class="experience-entry reveal"><div class="experience-top"><div><h3 class="experience-title">BlackRock Insight Experience / Tokyo, Japan</h3><p class="experience-subtitle">Institutional Asset Management Program</p></div><span class="experience-date">May 2024</span></div><ul class="experience-points"><li>Selected for a competitive program on institutional asset management.</li><li>Completed a team case study on Japanese pension fund management, strategic asset allocation, and liability-driven investment in a low-yield, aging-demographic environment.</li><li>Gained exposure to portfolio construction and risk analytics via the Aladdin platform.</li></ul></div><div class="experience-entry reveal"><div class="experience-top"><div><h3 class="experience-title">HelloRide Global / Singapore</h3><p class="experience-subtitle">Marketing Intern</p></div><span class="experience-date">Jun — Sep 2022</span></div><ul class="experience-points"><li>Analyzed competitor strategies and market research to inform content strategy, growing Instagram from 0 to 2,000 followers in 4 months.</li><li>Used Excel pivot tables and VLOOKUP to identify market trends and user needs, improving monthly active users by 32%.</li><li>Secured a B2B market cooperation partnership with Huttons valued at SGD 100M through Singapore government liaison meetings.</li></ul></div><div class="reveal"><a class="project" href="#contact"><span class="project-no">01</span><h3>Supply chain, automated</h3><span class="project-tags">Python · Process design · Xiaomi France</span><span class="project-arrow">↗</span></a><a class="project" href="#contact"><span class="project-no">02</span><h3>Performance, made visible</h3><span class="project-tags">Power BI · Data storytelling · Analytics</span><span class="project-arrow">↗</span></a><a class="project" href="#contact"><span class="project-no">03</span><h3>Growth with a point of view</h3><span class="project-tags">Market research · Strategy · HelloRide</span><span class="project-arrow">↗</span></a></div></section>
       <section class="section profile-section" id="profile"><div class="section-head"><span class="section-kicker">01 / Skills & signals</span><span class="section-index">Strategy + analytics + execution</span></div><div class="profile-grid reveal"><div class="profile-panel"><h3>Technical stack</h3><div class="skill-line"><strong>Python</strong><span>Intermediate</span></div><div class="skill-line"><strong>SQL</strong><span>Advanced</span></div><div class="skill-line"><strong>Power BI</strong><span>Intermediate</span></div><div class="skill-line"><strong>Excel</strong><span>Advanced</span></div><div class="skill-line"><strong>SAP / Power Query / GitHub</strong><span>Working knowledge</span></div></div><div class="career-focus"><h3>Target analyst roles</h3><p>Interested in Target Risk Analyst and Supply Chain Analyst roles where risk signals, operational systems, and technical analytics support better decisions.</p></div><div class="profile-panel"><h3>Certifications</h3><div class="cert-list"><div>Python Data Structures<span>University of Michigan</span></div><div>Mutual Funds & Systematic Investing<span>Franklin Templeton</span></div><div>Behavioral Finance<span>Duke University</span></div><div>Investment Silver Award<span>LIBF</span></div><div>Bloomberg Market Concepts<span>Bloomberg</span></div></div></div><div class="profile-panel"><h3>Interests with analytical value</h3><p class="activity-copy"><strong>Risk thinking</strong><br />Following markets, portfolio risk, and behavioral finance<br /><strong>Supply chain systems</strong><br />Exploring how operations, people, and data move across borders<br /><strong>Cross-cultural leadership</strong><br />Dance / 13 years · 25 countries explored</p></div></div></section>
       <section class="section projects-section" id="projects"><div class="section-head"><span class="section-kicker">06 / Selected projects</span><span class="section-index">Research, risk & applied analytics</span></div><div class="experience-entry reveal"><div class="experience-top"><div><span class="project-tag">Equity research · CNID Investment Challenge</span><h3 class="experience-title project-title">Tesla 10-year BUY thesis</h3><p class="experience-subtitle project-subtitle">Round 1 participant · Sep 2026 — Present</p></div><span class="experience-date">2026 / 2027</span></div><ul class="experience-points"><li>Authored an equity research report on Tesla using a 10-year DCF cross-checked with sum-of-the-parts and probability-weighted bear, base, and bull scenarios.</li><li>Analyzed revenue mix, cash-flow defensiveness, competitive moat, ESG exposure, and key risks from 10-K and 10-Q filings.</li></ul></div><div class="experience-entry reveal"><div class="experience-top"><div><span class="project-tag">Asset management · FIAM Hackathon</span><h3 class="experience-title project-title">Market-neutral portfolio construction</h3><p class="experience-subtitle project-subtitle">McGill Desautels · Participant · Sep 2026 — Present</p></div><span class="experience-date">2026 / 2027</span></div><ul class="experience-points"><li>Building a market-neutral portfolio of 100–500 US equities using fundamental and alternative data with machine-learning and NLP signals.</li><li>Preparing a research report and investment deck for the finalist round, linking quantitative signals to portfolio risk and return.</li></ul></div><div class="experience-entry reveal"><div class="experience-top"><div><span class="project-tag">Generative AI · Retail technology</span><h3 class="experience-title project-title">ALDO retail AI solution</h3><p class="experience-subtitle project-subtitle">McGill Retail GenAI Hackathon · Bensadoun School × ALDO Group × AWS</p></div><span class="experience-date">2026 / 2027</span></div><ul class="experience-points"><li>Designing a generative-AI solution for an ALDO retail use case using AWS AI/ML tools.</li><li>Translating a business problem into a practical, scalable analytics product concept.</li></ul></div><div class="experience-entry reveal"><div class="experience-top"><div><span class="project-tag">Data & AI consulting · Mining</span><h3 class="experience-title project-title">Rio Tinto Aluminium & Lithium</h3><p class="experience-subtitle project-subtitle">McGill MMA Capstone · Team Lead & Data Analytics Consultant · Montreal, QC</p></div><span class="experience-date">Sep 2026 — Apr 2027</span></div><ul class="experience-points"><li>Leading a ~1,000-hour engagement with Rio Tinto’s Data & AI team and four client contacts to replace duplicated, inconsistently governed chatbot initiatives with one reusable Databricks platform.</li><li>Designing a proof-of-concept AI assistant that answers engineers’ and site managers’ questions from approved documents with traceable citations, governed access, and a user feedback loop.</li><li>Building an evaluation module for answer quality, citation quality, and failure cases; documenting a standard architecture and scaling recommendations for other product lines.</li></ul></div></section>
-      <section class="section leadership-section" id="leadership"><div class="section-head"><span class="section-kicker">07 / Leadership</span><span class="section-index">Leading across cultures</span></div><div class="experience-entry reveal"><div class="experience-top"><div><h3 class="experience-title">ESSEC Dance Crew & Keio Revolve</h3><p class="experience-subtitle">Vice President</p></div><span class="experience-date">2021 — 2025</span></div><ul class="experience-points"><li>Led a 20+ member dance association across France and Japan.</li><li>Organized competitions, produced social media content, and recruited new talent on campus.</li></ul></div></section>
+      <section class="section leadership-section" id="leadership"><div class="section-head"><span class="section-kicker">07 / Leadership</span><span class="section-index">Leading across cultures</span></div><div class="experience-entry reveal"><div class="experience-top"><div><h3 class="experience-title">ESSEC Dance Crew & Keio Revolve</h3><p class="experience-subtitle">Vice President</p></div><span class="experience-date">2021 — 2025</span></div><div class="leadership-body"><ul class="experience-points"><li>Led a 20+ member dance association across France and Japan.</li><li>Organized competitions, produced social media content, and recruited new talent on campus.</li></ul><video class="leadership-video" controls muted loop playsinline preload="metadata" aria-label="Alex Zhao dance reel"><source src="dance/op.mp4#t=0.1" type="video/mp4" /></video></div></div></section>
       <section class="section contact" id="contact"><div class="section-head"><span class="section-kicker">07 / Next chapter</span><span class="section-index">Let's make something useful</span></div><div class="reveal"><h2>Have a good<br /><span>question?</span></h2><a class="button-link" href="mailto:qichao.zhao@mail.mcgill.ca">qichao.zhao@mail.mcgill.ca</a></div><footer class="contact-footer"><span>Alex Zhao © 2026</span><span>Montreal / Paris / Singapore / Tokyo</span><a href="https://www.linkedin.com/in/alex-zhao-7b45a8222/" target="_blank" rel="noreferrer">LinkedIn ↗</a></footer></section>
     </main>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
@@ -679,7 +731,7 @@
             ['BlackRock Insight Program / Tokyo, Japan', 'Institutional Asset Management', 'May 2024', ['Led a case study on a Japanese pension fund\'s asset allocation and LDI strategy under low yields and an aging population.', 'Gained exposure to fixed income risk analytics and portfolio construction on Aladdin.']]
           ],
           projects: [
-            ['Credit risk · Python / scikit-learn', 'Traffic Light Credit Decisions - PD Model & Approval Strategy', 'Sep 2026', ['Built a probability-of-default model on 133K Lending Club loans with out-of-time validation (train 2010-2012, test 2013).', 'Detected selection bias and retained an explainable logistic regression over LightGBM using a champion-challenger approach.', 'Designed green / yellow / red approval rules with reason codes and an interactive simulator for automation, default rates, and losses by threshold.'], 'alexkyoya.github.io/traffic-light-credit/app/'],
+            ['Credit risk · Python / scikit-learn', 'Traffic Light Credit Decisions', 'Sep 2026', ['Default-risk model on 133,000 personal loans: green (fast approval), yellow (analyst review) or red (enhanced review).', 'Online tool: enter a client’s details to get a default probability and a decision instantly, or move the thresholds.', 'Caught a data trap (unfinished recent loans), tested out-of-time, and kept an explainable model over a complex one.'], 'alexkyoya.github.io/traffic-light-credit/app/'],
             ['Asset management · FIAM Hackathon', 'Market-neutral portfolio construction', 'Sep 2026 - Present', ['Developing machine-learning and NLP signals for a market-neutral portfolio of 100-500 US equities.']],
             ['Fundamental research · CNID Investment Challenge 2026/2027', 'Tesla 10-year BUY thesis', 'Sep 2026 - Present', ['Building a 10-year BUY thesis from 10-K and 10-Q filings, with DCF cross-checked against SOTP and weighted scenarios.', 'Analyzing downside risk, revenue composition, and cash-flow resilience.']]
           ]
@@ -703,7 +755,7 @@
             ['Programme Insight de BlackRock / Tokyo, Japon', 'Gestion d’actifs institutionnels', 'Mai 2024', ['Dirige une étude de cas sur l’allocation d’actifs et la stratégie LDI d’une caisse de retraite japonaise dans un contexte de taux bas et de vieillissement.', 'Découvre l’analyse des risques de titres à revenu fixe et la construction de portefeuille sur Aladdin.']]
           ],
           projects: [
-            ['Risque de crédit · Python / scikit-learn', 'Feu vert, feu jaune, feu rouge - Modèle de PD et stratégie d’approbation', 'Sept. 2026', ['Construit un modèle de probabilité de défaut sur 133 000 prêts Lending Club avec validation hors période (entraînement 2010-2012, test 2013).', 'Détecte un biais de sélection et retient une régression logistique explicable face à LightGBM selon une approche champion-challenger.', 'Conçoit des règles d’approbation vert / jaune / rouge avec raisons de décision et simulateur interactif des seuils, défauts et pertes.'], 'alexkyoya.github.io/traffic-light-credit/app/'],
+            ['Risque de crédit · Python / scikit-learn', 'Feu vert, feu jaune, feu rouge - Décisions de crédit', 'Sept. 2026', ['Modèle de risque de défaut sur 133 000 prêts personnels : vert (approbation rapide), jaune (revue par un analyste) ou rouge (revue approfondie).', 'Outil en ligne : saisissez le profil d’un client pour obtenir instantanément une probabilité de défaut et une décision, ou déplacez les seuils.', 'Repéré un piège de données (prêts récents non terminés), testé hors période et retenu un modèle explicable plutôt qu’un modèle complexe.'], 'alexkyoya.github.io/traffic-light-credit/app/'],
             ['Gestion d’actifs · Hackathon FIAM', 'Construction d’un portefeuille neutre au marché', 'Sept. 2026 - aujourd’hui', ['Développe des signaux d’apprentissage automatique et de TALN pour un portefeuille neutre au marché de 100 à 500 actions américaines.']],
             ['Recherche fondamentale · CNID Investment Challenge 2026-2027', 'Thèse d’achat à 10 ans sur Tesla', 'Sept. 2026 - aujourd’hui', ['Élabore une thèse d’achat à 10 ans à partir des rapports 10-K et 10-Q, avec un DCF recoupé par une SOTP et des scénarios pondérés.', 'Analyse les risques baissiers, la composition des revenus et la résilience des flux de trésorerie.']]
           ]
@@ -748,22 +800,24 @@
         }
         const trafficProjectContent = language === 'fr' ? {
           tag: 'Risque de crédit · Python / scikit-learn',
-          title: 'Feu vert, feu jaune, feu rouge - Modèle de PD et stratégie d’approbation',
+          title: 'Feu vert, feu jaune, feu rouge - Décisions de crédit',
           subtitle: 'Modélisation du risque de crédit · Simulateur interactif',
           date: 'Sept. 2026',
           points: [
-            'Modèle de probabilité de défaut sur 133 000 prêts personnels Lending Club, validé hors période (entraînement 2010-2012, test 2013); biais de sélection détecté et corrigé, avec une régression logistique explicable retenue face à LightGBM.',
-            'Stratégie d’approbation vert / jaune / rouge avec raisons de décision et simulateur interactif en ligne pour l’automatisation, le taux de défaut et les pertes selon les seuils.'
+            'Modèle de risque de défaut sur 133 000 prêts personnels : vert (approbation rapide), jaune (revue par un analyste) ou rouge (revue approfondie).',
+            'Outil en ligne : saisissez le profil d’un client pour obtenir instantanément une probabilité de défaut et une décision, ou déplacez les seuils.',
+            'Repéré un piège de données (prêts récents non terminés), testé hors période et retenu un modèle explicable plutôt qu’un modèle complexe.'
           ],
           link: 'Voir le simulateur interactif ↗'
         } : {
           tag: 'Credit risk · Python / scikit-learn',
-          title: 'Traffic Light Credit Decisions - PD Model & Approval Strategy',
+          title: 'Traffic Light Credit Decisions',
           subtitle: 'Credit risk modeling · Interactive simulator',
           date: 'Sep 2026',
           points: [
-            'Built a probability-of-default model on 133K Lending Club personal loans with out-of-time validation (train 2010-2012, test 2013); detected and corrected selection bias, retaining an explainable logistic regression over LightGBM.',
-            'Designed a green / yellow / red approval strategy with reason codes and a live simulator for automation, default rates, and losses by threshold.'
+            'Default-risk model on 133,000 personal loans: green (fast approval), yellow (analyst review) or red (enhanced review).',
+            'Online tool: enter a client’s details to get a default probability and a decision instantly, or move the thresholds.',
+            'Caught a data trap (unfinished recent loans), tested out-of-time, and kept an explainable model over a complex one.'
           ],
           link: 'View interactive simulator ↗'
         };
@@ -786,7 +840,7 @@
           tag: 'INFÉRENCE CAUSALE · PYTHON / CAUSALML · DOWHY',
           title: 'Le 401(k) fait-il épargner davantage ? Étude d’inférence causale',
           subtitle: 'ÉVALUATION DE POLITIQUES · APPRENTISSAGE AUTOMATIQUE CAUSAL',
-          date: 'Sept. 2026',
+          date: 'Oct. 2026',
           points: [
             'Estimé l’effet causal de l’admissibilité au 401(k) sur l’épargne de 9 915 ménages américains avec CausalML et DoWhy : plus de la moitié de l’écart brut de 19 559 $ vient de facteurs confondants ; l’effet réel est d’environ 4 100 $ à 8 200 $.',
             'Montré que le gain se concentre dans le quintile de revenu le plus élevé (~20 100 $), confirmé le résultat par trois tests de réfutation, et estimé la valeur de la participation à ~8 500 $ par variable instrumentale.'
@@ -796,7 +850,7 @@
           tag: 'CAUSAL INFERENCE · PYTHON / CAUSALML · DOWHY',
           title: 'Does a 401(k) Make People Save More? Causal Inference Case Study',
           subtitle: 'POLICY EVALUATION · CAUSAL MACHINE LEARNING',
-          date: 'Sep 2026',
+          date: 'Oct 2026',
           points: [
             'Estimated the causal effect of 401(k) eligibility on the savings of 9,915 U.S. households with CausalML and DoWhy: more than half of the $19,559 raw gap is confounding, and the true effect is about $4,100 to $8,200.',
             'Showed the benefit is concentrated in the top income quintile (~$20,100), confirmed the result with three refutation tests, and valued actual participation at ~$8,500 using an instrumental variable.'
@@ -813,6 +867,66 @@
       };
       document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => renderLatestResume(button.dataset.language)));
       renderLatestResume('en');
+    </script>
+    <script>
+      (() => {
+        const overlay = document.querySelector('.intro-overlay');
+        const video = overlay.querySelector('video');
+        const skipButton = overlay.querySelector('.intro-skip');
+        const pageElements = [document.querySelector('.topbar'), document.querySelector('main')];
+        const previousInert = pageElements.map((element) => element.inert);
+        const storageKey = 'homepage-intro-played';
+        let playedBefore = false;
+        try {
+          playedBefore = sessionStorage.getItem(storageKey) === 'true';
+        } catch (error) {
+          console.warn('Unable to read intro playback state from sessionStorage.', error);
+        }
+
+        let dismissed = false;
+        let startupTimer;
+        const restorePage = () => {
+          pageElements.forEach((element, index) => { element.inert = previousInert[index]; });
+          document.body.classList.remove('intro-active');
+        };
+        const dismiss = (fadeOut) => {
+          if (dismissed) return;
+          dismissed = true;
+          window.clearTimeout(startupTimer);
+          video.pause();
+          if (!fadeOut) {
+            overlay.remove();
+            restorePage();
+            return;
+          }
+          overlay.classList.add('is-leaving');
+          window.setTimeout(() => {
+            overlay.remove();
+            restorePage();
+          }, 600);
+        };
+
+        if (playedBefore || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          dismiss(false);
+          return;
+        }
+
+        pageElements.forEach((element) => { element.inert = true; });
+        skipButton.addEventListener('click', () => dismiss(true));
+        skipButton.focus({ preventScroll:true });
+        video.addEventListener('ended', () => dismiss(true), { once:true });
+        video.addEventListener('error', () => dismiss(false), { once:true });
+        video.querySelector('source:last-of-type').addEventListener('error', () => dismiss(false), { once:true });
+        startupTimer = window.setTimeout(() => dismiss(false), 2000);
+        video.addEventListener('playing', () => window.clearTimeout(startupTimer), { once:true });
+
+        try {
+          sessionStorage.setItem(storageKey, 'true');
+        } catch (error) {
+          console.warn('Unable to save intro playback state to sessionStorage.', error);
+        }
+        video.play().catch(() => dismiss(false));
+      })();
     </script>
   </body>
 </html>
