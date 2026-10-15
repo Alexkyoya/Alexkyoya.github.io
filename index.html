@@ -614,7 +614,7 @@
       const cnProject = document.querySelector('#projects > .portfolio-project');
       if (cnProject) { const pdfLink = document.createElement('a'); pdfLink.className = 'project-link cnid-project-link'; pdfLink.href = 'cnid-tesla-equity-research.pdf.pdf'; pdfLink.target = '_blank'; pdfLink.rel = 'noreferrer'; pdfLink.textContent = 'View equity research PDF ↗'; cnProject.appendChild(pdfLink); }
 
-      const travelMap = L.map('travel-map', { worldCopyJump: true, minZoom: .25, zoomControl: true, scrollWheelZoom: false }).setView([20, 0], .25);
+      const travelMap = L.map('travel-map', { worldCopyJump: true, minZoom: .25, zoomControl: true, scrollWheelZoom: true }).setView([20, 0], .25);
       const visitedCountries = new Set(['China', 'Japan', 'Thailand', 'Singapore', 'Canada', 'France', 'Belgium', 'Netherlands', 'Sweden', 'Norway', 'Denmark', 'Monaco', 'Italy', 'Spain', 'Vatican City', 'Romania', 'Austria', 'Switzerland', 'Germany', 'Latvia', 'Czechia', 'Poland', 'Hungary']);
       const countryAliases = { 'Czech Republic': 'Czechia', 'Vatican': 'Vatican City', 'The Netherlands': 'Netherlands' };
       const countryName = (feature) => feature.properties.ADMIN || feature.properties.NAME || feature.properties.name || '';
@@ -643,6 +643,8 @@
         }
       });
       const cityMarkerLayer = L.layerGroup().addTo(travelMap);
+      travelMap.createPane('workStudyPane');
+      travelMap.getPane('workStudyPane').style.zIndex = '625';
       const fitWorldBounds = () => {
         travelMap.invalidateSize({ pan: false });
         if (countryLayer.getLayers().length) travelMap.fitBounds(countryLayer.getBounds(), { padding: [12, 12], maxZoom: 1 });
@@ -674,7 +676,7 @@
         renderCountryTooltips(language);
         cityMarkerLayer.clearLayers();
         workStudyCities.forEach((city) => L.circleMarker(city.coordinates, {
-          radius: 7, color: '#eafaff', weight: 2, fillColor: '#62dcff', fillOpacity: 1, className: 'work-study-marker'
+          radius: 7, color: '#eafaff', weight: 2, fillColor: '#62dcff', fillOpacity: 1, className: 'work-study-marker', pane: 'workStudyPane', bubblingMouseEvents: false
         }).addTo(cityMarkerLayer).bindTooltip(`<strong>${language === 'fr' ? city.frenchName : city.name}</strong><br>${city[language]}`, {
           sticky: true, direction: 'top', className: 'map-work-tooltip', opacity: 1
         }).on('click', (event) => event.target.openTooltip()));
