@@ -21,10 +21,17 @@
       mapTitle: 'Work, study<br>and connection.',
       mapDescription: 'I was born and raised in China, where I was schooled; Mandarin is my native language. I have studied or worked in France, Singapore, Japan and Canada, using French, English and Japanese. Travel adds a wider perspective.',
       mapLegend: ['Work / study city', 'Born and raised · Mandarin native', 'Travelled country'],
-      aldoPoints: [
-        'Designing a generative-AI solution for an ALDO retail use case using AWS AI/ML tools.',
-        'Translating a business problem into a practical, scalable analytics product concept.'
-      ],
+      aldo: {
+        title: 'Return Detective · ALDO retail AI',
+        subtitle: 'McGill Retail GenAI Hackathon (ALDO Group × AWS) · Finalist, team of 5',
+        date: 'Sep 2026 — Oct 2026',
+        points: [
+          'Built “Return Detective”: 3 AI agents (Amazon Bedrock, Athena) that flag abnormal return spikes in 2 years of real ALDO data and trace each to a root cause.',
+          'Backtested with a no-look-ahead daily replay: flagged issues a median 40.5 days earlier than a simulated month-end rule (94 cases).',
+          'Put risk limits in code, not prompts: stock holds, supplier claims and customer outreach need human approval; unverifiable refunds are blocked.'
+        ],
+        link: 'View pitch deck ↗'
+      },
       contact: '<span class="contact-keyword">IF</span> you have a question<br><span class="contact-keyword">THEN</span> send me a message<br><span class="contact-keyword">ELSE</span> have a nice day',
       work: [
         {
@@ -100,10 +107,17 @@
       mapTitle: 'Travail, études<br>et rencontres.',
       mapDescription: 'La Chine est mon pays de naissance et de scolarité; le mandarin est ma langue maternelle. J’ai étudié ou travaillé en France, à Singapour, au Japon et au Canada, en utilisant le français, l’anglais et le japonais. Les voyages complètent cette perspective.',
       mapLegend: ['Ville de travail / d’études', 'Né et élevé en Chine · mandarin maternel', 'Pays visité'],
-      aldoPoints: [
-        'Conçoit une solution d’IA générative pour un cas d’usage retail d’ALDO avec les outils AWS AI/ML.',
-        'Transforme un problème commercial en concept de produit analytique pratique et évolutif.'
-      ],
+      aldo: {
+        title: 'Return Detective · IA retail pour ALDO',
+        subtitle: 'Hackathon McGill Retail GenAI (ALDO Group × AWS) · Finaliste, équipe de 5',
+        date: 'Sept. 2026 — Oct. 2026',
+        points: [
+          'Conception de « Return Detective » : 3 agents IA (Amazon Bedrock, Athena) qui détectent les pics anormaux de retours sur 2 ans de données réelles d’ALDO et remontent chacun à sa cause racine.',
+          'Backtest par rejeu quotidien sans information future : problèmes signalés en médiane 40,5 jours plus tôt qu’une règle simulée de fin de mois (94 cas).',
+          'Limites de risque inscrites dans le code, pas dans les prompts : blocage de stock, réclamations fournisseurs et contact client exigent une approbation humaine; les remboursements invérifiables sont bloqués.'
+        ],
+        link: 'Voir la présentation ↗'
+      },
       contact: '<span class="contact-keyword">SI</span> vous avez une question<br><span class="contact-keyword">ALORS</span> écrivez-moi<br><span class="contact-keyword">SINON</span> bonne journée',
       work: [
         {
@@ -190,6 +204,8 @@
         date.textContent = language === 'fr' ? 'Oct. 2026' : 'Oct 2026';
       } else if (project.classList.contains('latest-traffic-project')) {
         date.textContent = language === 'fr' ? 'Sept. 2026' : 'Sep 2026';
+      } else if (project.querySelector('.experience-title')?.textContent.includes('ALDO')) {
+        date.textContent = translations[language].aldo.date;
       } else if (tag.includes('CNID') || tag.includes('Challenge d’investissement')) {
         date.textContent = language === 'fr' ? 'Septembre 2026 — Aujourd’hui' : 'September 2026 — Present';
       } else {
@@ -256,9 +272,28 @@
     const aldoProject = Array.from(document.querySelectorAll('#projects > .portfolio-project'))
       .find((entry) => entry.querySelector('.experience-title')?.textContent.includes('ALDO'));
     if (aldoProject) {
-      aldoProject.querySelectorAll('.experience-points li').forEach((point, index) => {
-        if (content.aldoPoints[index] !== undefined) point.textContent = content.aldoPoints[index];
-      });
+      const title = aldoProject.querySelector('.experience-title');
+      const subtitle = aldoProject.querySelector('.experience-subtitle');
+      const points = aldoProject.querySelector('.experience-points');
+      if (title) title.textContent = content.aldo.title;
+      if (subtitle) subtitle.textContent = content.aldo.subtitle;
+      if (points) {
+        points.replaceChildren(...content.aldo.points.map((text) => {
+          const point = document.createElement('li');
+          point.textContent = text;
+          return point;
+        }));
+      }
+      let deckLink = aldoProject.querySelector('.aldo-deck-link');
+      if (!deckLink) {
+        deckLink = document.createElement('a');
+        deckLink.className = 'project-link aldo-deck-link';
+        deckLink.href = 'aldo-return-detective-deck.pdf';
+        deckLink.target = '_blank';
+        deckLink.rel = 'noreferrer';
+        aldoProject.appendChild(deckLink);
+      }
+      deckLink.textContent = content.aldo.link;
     }
 
     document.querySelectorAll('#work .experience-entry').forEach((entry, index) => {
