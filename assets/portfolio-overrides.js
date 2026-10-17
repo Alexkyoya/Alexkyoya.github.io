@@ -30,7 +30,8 @@
           'Backtested with a no-look-ahead daily replay: flagged issues a median 40.5 days earlier than a simulated month-end rule (94 cases).',
           'Put risk limits in code, not prompts: stock holds, supplier claims and customer outreach need human approval; unverifiable refunds are blocked.'
         ],
-        link: 'View pitch deck ↗'
+        link: 'View pitch deck ↗',
+        appLink: 'Open live app ↗'
       },
       contact: '<span class="contact-keyword">IF</span> you have a question<br><span class="contact-keyword">THEN</span> send me a message<br><span class="contact-keyword">ELSE</span> have a nice day',
       work: [
@@ -116,7 +117,8 @@
           'Backtest par rejeu quotidien sans information future : problèmes signalés en médiane 40,5 jours plus tôt qu’une règle simulée de fin de mois (94 cas).',
           'Limites de risque inscrites dans le code, pas dans les prompts : blocage de stock, réclamations fournisseurs et contact client exigent une approbation humaine; les remboursements invérifiables sont bloqués.'
         ],
-        link: 'Voir la présentation ↗'
+        link: 'Voir la présentation ↗',
+        appLink: 'Ouvrir l’application ↗'
       },
       contact: '<span class="contact-keyword">SI</span> vous avez une question<br><span class="contact-keyword">ALORS</span> écrivez-moi<br><span class="contact-keyword">SINON</span> bonne journée',
       work: [
@@ -294,6 +296,16 @@
         aldoProject.appendChild(deckLink);
       }
       deckLink.textContent = content.aldo.link;
+      let appLink = aldoProject.querySelector('.aldo-app-link');
+      if (!appLink) {
+        appLink = document.createElement('a');
+        appLink.className = 'project-link aldo-app-link';
+        appLink.href = 'https://aldo-hackathonreturndetective-ljclhkcapxeuklmixdkgee.streamlit.app/';
+        appLink.target = '_blank';
+        appLink.rel = 'noreferrer';
+        deckLink.after(appLink);
+      }
+      appLink.textContent = content.aldo.appLink;
     }
 
     document.querySelectorAll('#work .experience-entry').forEach((entry, index) => {
