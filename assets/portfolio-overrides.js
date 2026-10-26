@@ -191,6 +191,7 @@
       dec: 12, décembre: 12, decembre: 12
     };
     const tieOrder = (project) => {
+      if (project.classList.contains('latest-mortgage-project')) return -1;
       const tag = project.querySelector('.project-tag')?.textContent || '';
       if (tag.includes('CNID') || tag.includes('Challenge d’investissement')) return 0;
       if (tag.includes('FIAM') || tag.includes('Gestion d’actifs')) return 1;
@@ -202,7 +203,9 @@
       const tag = project.querySelector('.project-tag')?.textContent || '';
       const date = project.querySelector('.experience-date');
       if (!date) return;
-      if (project.classList.contains('latest-401k-project')) {
+      if (project.classList.contains('latest-mortgage-project')) {
+        date.textContent = language === 'fr' ? 'Oct. 2026' : 'Oct 2026';
+      } else if (project.classList.contains('latest-401k-project')) {
         date.textContent = language === 'fr' ? 'Oct. 2026' : 'Oct 2026';
       } else if (project.classList.contains('latest-traffic-project')) {
         date.textContent = language === 'fr' ? 'Sept. 2026' : 'Sep 2026';

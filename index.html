@@ -933,6 +933,45 @@
         causalBrand.innerHTML = '<div class="company-logo project-logo logo-traffic"><img src="401k_thumbnail.png" alt="401(k) savings causal inference case study thumbnail" /></div>';
         causalBrand.appendChild(causalHeader);
         causalProject.querySelector('.experience-top').prepend(causalBrand);
+        let mortgageProject = projectsSection.querySelector('.latest-mortgage-project');
+        if (!mortgageProject) {
+          mortgageProject = document.createElement('div');
+          mortgageProject.className = 'experience-entry reveal latest-mortgage-project';
+          trafficProject.insertAdjacentElement('beforebegin', mortgageProject);
+          observer.observe(mortgageProject);
+        }
+        const mortgageProjectContent = language === 'fr' ? {
+          tag: 'RISQUE DE CRÉDIT · PYTHON / PYTORCH · LSTM',
+          title: 'Alerte précoce de défaut hypothécaire',
+          subtitle: 'DONNÉES FREDDIE MAC · APPRENTISSAGE PROFOND SÉQUENTIEL',
+          date: 'Oct. 2026',
+          points: [
+            'Conçu un LSTM (PyTorch) qui lit 12 mois d’historique de paiement de 889 676 prêts hypothécaires Freddie Mac pour signaler ceux susceptibles d’atteindre 90+ jours de retard l’année suivante.',
+            'Capté 58,2 % des défauts dans les 5 % de prêts les plus risqués contre 36,0 % pour la régression logistique (ROC-AUC 0,903 contre 0,849); résultat maintenu sur un test hors période (54,2 % contre 22,1 %).',
+            'Mené des expériences contrôlées sur 3 graines : 6 mois d’historique suffisent, les poids de classe gonflent les taux de défaut prédits jusqu’à 35×, et le modèle rate les chocs soudains comme les ouragans de 2017.'
+          ],
+          link: 'VOIR LE PROJET ↗',
+          code: 'VOIR LE CODE ↗'
+        } : {
+          tag: 'CREDIT RISK · PYTHON / PYTORCH · LSTM',
+          title: 'Mortgage Default Early Warning',
+          subtitle: 'FREDDIE MAC LOAN DATA · SEQUENCE DEEP LEARNING',
+          date: 'Oct 2026',
+          points: [
+            'Built an LSTM (PyTorch) that reads 12 months of payment history on 889,676 Freddie Mac mortgages to flag loans likely to go 90+ days delinquent in the following year.',
+            'Caught 58.2% of defaults in the riskiest 5% of loans vs. 36.0% for logistic regression (ROC-AUC 0.903 vs. 0.849); held up on an out-of-time test (54.2% vs. 22.1%).',
+            'Ran controlled experiments over 3 seeds: 6 months of history is enough, class weights inflated predicted default rates up to 35×, and the model misses sudden shocks such as the 2017 hurricanes.'
+          ],
+          link: 'VIEW PROJECT ↗',
+          code: 'VIEW CODE ↗'
+        };
+        mortgageProject.innerHTML = `<div class="experience-top"><div><span class="project-tag">${mortgageProjectContent.tag}</span><h3 class="experience-title project-title">${mortgageProjectContent.title}</h3><p class="experience-subtitle project-subtitle">${mortgageProjectContent.subtitle}</p></div><span class="experience-date">${mortgageProjectContent.date}</span></div><ul class="experience-points">${mortgageProjectContent.points.map((point) => `<li>${point}</li>`).join('')}</ul><a class="project-link" href="https://alexkyoya.github.io/mortgage-default-early-warning/" target="_blank" rel="noreferrer">${mortgageProjectContent.link}</a><a class="project-link" href="https://github.com/Alexkyoya/mortgage-default-early-warning" target="_blank" rel="noreferrer">${mortgageProjectContent.code}</a>`;
+        const mortgageHeader = mortgageProject.querySelector('.experience-top > div');
+        const mortgageBrand = document.createElement('div');
+        mortgageBrand.className = 'project-brand';
+        mortgageBrand.innerHTML = '<div class="company-logo project-logo logo-traffic"><img src="mortgage_thumbnail.svg" alt="Mortgage default early warning project thumbnail" /></div>';
+        mortgageBrand.appendChild(mortgageHeader);
+        mortgageProject.querySelector('.experience-top').prepend(mortgageBrand);
       };
       document.querySelectorAll('[data-language]').forEach((button) => button.addEventListener('click', () => renderLatestResume(button.dataset.language)));
       renderLatestResume('en');
