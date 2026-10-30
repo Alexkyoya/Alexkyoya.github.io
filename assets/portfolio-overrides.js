@@ -211,6 +211,8 @@
         date.textContent = language === 'fr' ? 'Sept. 2026' : 'Sep 2026';
       } else if (project.querySelector('.experience-title')?.textContent.includes('ALDO')) {
         date.textContent = translations[language].aldo.date;
+      } else if (tag.includes('FIAM')) {
+        date.textContent = language === 'fr' ? 'Sept. 2026 — Oct. 2026' : 'Sep 2026 — Oct 2026';
       } else if (tag.includes('CNID') || tag.includes('Challenge d’investissement')) {
         date.textContent = language === 'fr' ? 'Septembre 2026 — Aujourd’hui' : 'September 2026 — Present';
       } else {

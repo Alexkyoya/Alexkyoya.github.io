@@ -841,23 +841,38 @@
         document.querySelector('#about .intro-copy p:nth-child(2)').textContent = content.aboutTwo;
         document.querySelector('#education .education-note').textContent = content.educationNote;
         document.querySelector('#profile .career-focus p').textContent = content.focus;
-        const fiamProject = document.querySelectorAll('#projects .experience-entry')[1];
+        const fiamProject = Array.from(document.querySelectorAll('#projects .experience-entry'))
+          .find((entry) => entry.querySelector('.project-tag')?.textContent.includes('FIAM'));
         if (fiamProject) {
           const fiamTitle = fiamProject.querySelector('.experience-title');
           const fiamSubtitle = fiamProject.querySelector('.experience-subtitle');
-          const fiamPoints = fiamProject.querySelectorAll('.experience-points li');
+          const fiamPoints = fiamProject.querySelector('.experience-points');
           fiamTitle.textContent = language === 'fr' ? 'Stratégie actions américaines market-neutral' : 'US Equity Market-Neutral Strategy';
-          fiamSubtitle.textContent = language === 'fr' ? 'Hackathon FIAM · McGill Desautels · Modélisation quantitative' : 'FIAM Asset Management Hackathon · McGill Desautels · Quantitative modeling';
+          fiamSubtitle.textContent = language === 'fr' ? 'Hackathon FIAM en gestion d’actifs · McGill Desautels · 5e place (2 000 $ CA)' : 'FIAM Asset Management Hackathon · McGill Desautels · 5th place (CA$2,000)';
           const fiamDescription = language === 'fr' ? [
-            'Développe une stratégie long/short sur actions américaines avec des arbres de gradient boosting appliqués à 147 caractéristiques.',
-            'Résidualise le score par secteur, taille et beta, puis construit un portefeuille de 200 titres (100 longs / 100 shorts) avec 200 % d’exposition brute et +12,5 % nette.',
-            'Obtient un ratio d’information de +0,88 avant coûts et +0,71 après 20 points de base, avec un beta de -0,159 et une perte maximale mensuelle de -6,53 % sur 2021-01 à 2026-08.'
+            'Dirigé la stratégie d’une équipe de 5 : conçu une stratégie long/short neutre en beta sur actions américaines (100 longs / 100 shorts) avec des arbres de gradient boosting (LightGBM) sur 147 caractéristiques d’entreprises et 530 000 observations titre-mois, résidualisée par secteur, taille et beta.',
+            'Obtenu un ratio d’information hors échantillon de 0,71 après 20 points de base de coûts sur 68 mois, avec un beta de marché statistiquement indiscernable de zéro; réduit la rotation mensuelle de 56 % à 25 % par lissage du signal.',
+            'Repéré une fuite d’information future dans notre propre sélection de modèle et un biais de survie dans les données de déclarations 8-K, mis en place 21 contrôles automatisés, et terminé 5e sur 11 équipes finalistes après une présentation devant des cadres supérieurs de La Caisse.'
           ] : [
-            'Developed a long/short US equity strategy using gradient-boosted trees on 147 firm characteristics.',
-            'Residualised forecasts by sector, size, and beta, then built a 200-name book (100 long / 100 short) with 200% gross and +12.5% net exposure.',
-            'Achieved a +0.88 information ratio before costs and +0.71 after 20 bps, with -0.159 beta and -6.53% maximum monthly drawdown over 2021-01 to 2026-08.'
+            'Led strategy for a team of 5: built a beta-neutral long/short US equity strategy (100 long / 100 short) with gradient-boosted trees (LightGBM) on 147 firm characteristics and 530K stock-months, residualised by sector, size and beta.',
+            'Achieved an out-of-sample information ratio of 0.71 after 20bps costs over 68 months, with market beta statistically indistinguishable from zero; cut monthly turnover from 56% to 25% through signal smoothing.',
+            'Found a look-ahead leak in our own model selection and a survivorship bias in the 8-K filings data, built 21 automated checks, and placed 5th of 11 finalist teams after pitching to senior executives at La Caisse.'
           ];
-          fiamPoints.forEach((point, index) => { point.textContent = fiamDescription[index]; });
+          fiamPoints.replaceChildren(...fiamDescription.map((text) => {
+            const point = document.createElement('li');
+            point.textContent = text;
+            return point;
+          }));
+          let fiamDeckLink = fiamProject.querySelector('.fiam-deck-link');
+          if (!fiamDeckLink) {
+            fiamDeckLink = document.createElement('a');
+            fiamDeckLink.className = 'project-link fiam-deck-link';
+            fiamDeckLink.href = 'fiam-hackathon-final-deck.pdf';
+            fiamDeckLink.target = '_blank';
+            fiamDeckLink.rel = 'noreferrer';
+            fiamProject.appendChild(fiamDeckLink);
+          }
+          fiamDeckLink.textContent = language === 'fr' ? 'Voir la présentation finale ↗' : 'View final pitch deck ↗';
         }
         const projectsSection = document.querySelector('#projects');
         let trafficProject = projectsSection.querySelector('.latest-traffic-project');
