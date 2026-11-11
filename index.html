@@ -3,8 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Alex Zhao — quadrilingual strategy, business analytics, cross-cultural operations, and technical analytics." />
-    <title>Alex Zhao | Multicultural Strategy & Analytics</title>
+    <meta name="description" content="Alex Zhao — credit risk and analytics, quadrilingual (EN/FR/中文/日本語), McGill MMA. Mortgage early-warning model, FIAM hackathon 5th place, Rio Tinto capstone lead. Montreal." />
+    <title>Alex Zhao | Credit Risk &amp; Multicultural Analytics</title>
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alexkyoya.github.io/" />
+    <meta property="og:title" content="Alex Zhao | Credit Risk &amp; Multicultural Analytics" />
+    <meta property="og:description" content="Alex Zhao — credit risk and analytics, quadrilingual (EN/FR/中文/日本語), McGill MMA. Mortgage early-warning model, FIAM hackathon 5th place, Rio Tinto capstone lead. Montreal." />
+    <meta property="og:image" content="https://alexkyoya.github.io/mortgage_thumbnail.png" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1254" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -768,8 +775,8 @@
         setText('#projects .cnid-project-link', isFrench ? 'Voir le rapport de recherche actions PDF ↗' : 'View equity research PDF ↗');
         setText('#travel .travel-count-label', isFrench ? 'Pays visités' : 'Countries visited');
         setText('#travel .map-caption span:nth-child(2)', isFrench ? 'DONNÉES : ALEX ZHAO' : 'DATASET: ALEX ZHAO');
-        document.title = isFrench ? 'Alex Zhao | Stratégie multiculturelle & analytique' : 'Alex Zhao | Multicultural Strategy & Analytics';
-        document.querySelector('meta[name="description"]').setAttribute('content', isFrench ? 'Alex Zhao — stratégie multiculturelle, analytique d’affaires, opérations interculturelles et analyse technique.' : 'Alex Zhao — quadrilingual strategy, business analytics, cross-cultural operations, and technical analytics.');
+        document.title = isFrench ? 'Alex Zhao | Risque de crédit & analytique multiculturelle' : 'Alex Zhao | Credit Risk & Multicultural Analytics';
+        document.querySelector('meta[name="description"]').setAttribute('content', isFrench ? 'Alex Zhao — risque de crédit et analytique, quadrilingue (EN/FR/中文/日本語), MMA de McGill. Modèle d’alerte précoce hypothécaire, 5e place au hackathon FIAM, chef d’équipe du projet intégrateur Rio Tinto. Montréal.' : 'Alex Zhao — credit risk and analytics, quadrilingual (EN/FR/中文/日本語), McGill MMA. Mortgage early-warning model, FIAM hackathon 5th place, Rio Tinto capstone lead. Montreal.');
         document.body.dataset.language = language;
         setList('#profile .cert-list > div', isFrench ? ['Bloomberg Market Concepts<span>Bloomberg</span>', 'Structures de données Python<span>Université du Michigan</span>', 'Fonds communs & investissement systématique<span>Franklin Templeton</span>', 'Finance comportementale<span>Université Duke</span>', 'Prix d’argent en investissement<span>LIBF</span>'] : ['Bloomberg Market Concepts<span>Bloomberg</span>', 'Python Data Structures<span>University of Michigan</span>', 'Mutual Funds & Systematic Investing<span>Franklin Templeton</span>', 'Behavioral Finance<span>Duke University</span>', 'Investment Silver Award<span>LIBF</span>']);
         setList('#work .experience-points li', isFrench ? [
@@ -959,7 +966,7 @@
         const mortgageHeader = mortgageProject.querySelector('.experience-top > div');
         const mortgageBrand = document.createElement('div');
         mortgageBrand.className = 'project-brand';
-        mortgageBrand.innerHTML = '<div class="company-logo project-logo logo-traffic"><img src="mortgage_thumbnail.svg" alt="Mortgage default early warning project thumbnail" /></div>';
+        mortgageBrand.innerHTML = '<div class="company-logo project-logo logo-traffic"><img src="mortgage_thumbnail.png" alt="Mortgage default early warning project thumbnail" /></div>';
         mortgageBrand.appendChild(mortgageHeader);
         mortgageProject.querySelector('.experience-top').prepend(mortgageBrand);
       };
