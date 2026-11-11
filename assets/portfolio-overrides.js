@@ -3,7 +3,7 @@
     en: {
       sections: {
         profile: ['01 / Skills & signals', 'Strategy + analytics + execution'],
-        work: ['02 / Professional experience', 'Multi-industry strategic impact'],
+        work: ['02 / Professional experience', 'Across industries and borders'],
         projects: ['03 / Selected projects', 'Research, risk & applied analytics'],
         education: ['04 / Education', 'Three ways of learning'],
         about: ['05 / The person behind the numbers', 'About me'],
@@ -90,7 +90,7 @@
     fr: {
       sections: {
         profile: ['01 / Compétences & signaux', 'Stratégie + analytique + exécution'],
-        work: ['02 / Expérience professionnelle', 'Impact stratégique multisectoriel'],
+        work: ['02 / Expérience professionnelle', 'À travers les secteurs et les frontières'],
         projects: ['03 / Projets sélectionnés', 'Recherche, risque & analytique appliquée'],
         education: ['04 / Formation', 'Trois façons d’apprendre'],
         about: ['05 / La personne derrière les chiffres', 'À propos'],
@@ -101,21 +101,21 @@
       countries: 'Pays de résidence, d’études ou de travail',
       interests: '<strong>Réflexion sur le risque</strong><br>Marchés, risque de portefeuille et finance comportementale<br><strong>Systèmes de chaîne d’approvisionnement</strong><br>Opérations, personnes et données au-delà des frontières<br><strong>Leadership interculturel</strong><br>Danse / 13 ans · Résidence, études ou travail dans 5 pays',
       educationLocations: ['Montréal, Canada', 'Paris · Singapour', 'Tokyo, Japon'],
-      educationNote: 'Global BBA de l’ESSEC : Paris et Singapour · Échange en double diplôme à l’Université Keio, Tokyo.',
+      educationNote: 'Global BBA de l’ESSEC : Paris et Singapour · Échange en double diplôme à l’Université Keio, Tokyo.',
       mapLabel: 'Carte des villes de travail et d’études, de la Chine et des pays visités',
       mapCaption: ['TRAVAIL / ÉTUDES / VOYAGES', 'NATURAL EARTH 110m · ALEX ZHAO'],
       mapCount: 'Pays visités',
       mapTitle: 'Travail, études<br>et rencontres.',
-      mapDescription: 'La Chine est mon pays de naissance et de scolarité; le mandarin est ma langue maternelle. J’ai étudié ou travaillé en France, à Singapour, au Japon et au Canada, en utilisant le français, l’anglais et le japonais. Les voyages complètent cette perspective.',
-      mapLegend: ['Ville de travail / d’études', 'Né et élevé en Chine · mandarin maternel', 'Pays visité'],
+      mapDescription: 'La Chine est mon pays de naissance et de scolarité ; le mandarin est ma langue maternelle. J’ai étudié ou travaillé en France, à Singapour, au Japon et au Canada, en utilisant le français, l’anglais et le japonais. Les voyages complètent cette perspective.',
+      mapLegend: ['Ville de travail / d’études', 'Né et élevé en Chine · Mandarin maternel', 'Pays visité'],
       aldo: {
         title: 'Return Detective · IA retail pour ALDO',
         subtitle: 'Hackathon McGill Retail GenAI (ALDO Group × AWS) · Finaliste, équipe de 5',
         date: 'Sept. 2026 — Oct. 2026',
         points: [
-          'Conception de « Return Detective » : 3 agents IA (Amazon Bedrock, Athena) qui détectent les pics anormaux de retours sur 2 ans de données réelles d’ALDO et remontent chacun à sa cause racine.',
-          'Backtest par rejeu quotidien sans information future : problèmes signalés en médiane 40,5 jours plus tôt qu’une règle simulée de fin de mois (94 cas).',
-          'Limites de risque inscrites dans le code, pas dans les prompts : blocage de stock, réclamations fournisseurs et contact client exigent une approbation humaine; les remboursements invérifiables sont bloqués.'
+          'Conception de « Return Detective » : 3 agents IA (Amazon Bedrock, Athena) qui détectent les pics anormaux de retours sur 2 ans de données réelles d’ALDO et remontent chacun à sa cause racine.',
+          'Backtest par rejeu quotidien sans information future : problèmes signalés en médiane 40,5 jours plus tôt qu’une règle simulée de fin de mois (94 cas).',
+          'Limites de risque inscrites dans le code, pas dans les prompts : blocage de stock, réclamations fournisseurs et contact client exigent une approbation humaine ; les remboursements invérifiables sont bloqués.'
         ],
         link: 'Voir la présentation ↗',
         appLink: 'Ouvrir l’application ↗'
@@ -129,7 +129,7 @@
           points: [
             'Dirige un mandat d’environ 1 000 heures avec l’équipe Données et IA de Rio Tinto et quatre interlocuteurs afin de remplacer des initiatives de robots conversationnels redondantes et mal gouvernées par une plateforme Databricks réutilisable.',
             'Conçoit un assistant IA qui répond aux questions des ingénieurs et des responsables de site à partir de documents approuvés, avec des citations traçables, un accès gouverné et une boucle de rétroaction.',
-            'Crée un module d’évaluation de la qualité des réponses, des citations et des cas d’échec; documente une architecture standard et des recommandations de déploiement pour d’autres gammes de produits.'
+            'Crée un module d’évaluation de la qualité des réponses, des citations et des cas d’échec ; documente une architecture standard et des recommandations de déploiement pour d’autres gammes de produits.'
           ]
         },
         {
@@ -146,10 +146,10 @@
           subtitle: 'Stagiaire après-vente et chaîne d’approvisionnement',
           date: 'Juill. — Déc. 2025',
           points: [
-            'Développe un script Python de distribution des nomenclatures entre le siège de Xiaomi, la France et plus de 10 stations de service, réduisant le délai de traitement de 3 jours (37 %).',
-            'Gère le suivi Excel des travaux en cours et la coordination logistique quotidienne avec des partenaires français et espagnols, réduisant le délai moyen de 8 à 3 jours (62 %).',
-            'Crée des tableaux de bord Power BI pour analyser les caractéristiques des produits multimarques et la performance après-vente.',
-            'Étudie la chaîne d’approvisionnement de Samsung, Daikin et Hisense afin de repérer des possibilités de collaboration avec les fournisseurs.'
+            'Développé un script Python de distribution des nomenclatures entre le siège de Xiaomi, la France et plus de 10 stations de service, réduisant le délai de traitement de 3 jours (37 %).',
+            'Géré le suivi Excel des travaux en cours et la coordination logistique quotidienne avec des partenaires français et espagnols, réduisant le délai moyen de 8 à 3 jours (62 %).',
+            'Créé des tableaux de bord Power BI pour analyser les caractéristiques des produits multimarques et la performance après-vente.',
+            'Mené une étude de la chaîne d’approvisionnement de Samsung, Daikin et Hisense afin de repérer des possibilités de collaboration avec les fournisseurs.'
           ]
         },
         {
@@ -158,8 +158,8 @@
           date: 'Mai 2024',
           points: [
             'Sélectionné pour un programme compétitif en gestion d’actifs institutionnels.',
-            'Réalise une étude de cas en équipe sur la gestion d’un régime de retraite japonais, l’allocation stratégique d’actifs et l’investissement guidé par les passifs dans un contexte de faibles rendements et de vieillissement démographique.',
-            'Découvre la construction de portefeuille et l’analyse des risques à l’aide de la plateforme Aladdin.'
+            'Réalisé une étude de cas en équipe sur la gestion d’un régime de retraite japonais, l’allocation stratégique d’actifs et l’investissement guidé par les passifs dans un contexte de faibles rendements et de vieillissement démographique.',
+            'Découvert la construction de portefeuille et l’analyse des risques à l’aide de la plateforme Aladdin.'
           ]
         },
         {
@@ -167,9 +167,9 @@
           subtitle: 'Stagiaire en marketing',
           date: 'Juin — Sept. 2022',
           points: [
-            'Analyse les stratégies concurrentes et le marché pour orienter la stratégie de contenu; fait passer Instagram de 0 à 2 000 abonnés en quatre mois.',
-            'Utilise les tableaux croisés dynamiques et RECHERCHEV dans Excel pour cerner les tendances et les besoins, augmentant de 32 % les utilisateurs actifs mensuels.',
-            'Obtient un partenariat B2B avec Huttons, d’une valeur de 100 M SGD, grâce à des rencontres avec les autorités singapouriennes.'
+            'Analysé les stratégies concurrentes et le marché pour orienter la stratégie de contenu ; fait passer Instagram de 0 à 2 000 abonnés en quatre mois.',
+            'Utilisé les tableaux croisés dynamiques et RECHERCHEV dans Excel pour cerner les tendances et les besoins, augmentant de 32 % les utilisateurs actifs mensuels.',
+            'Obtenu un partenariat B2B avec Huttons, d’une valeur de 100 M SGD, grâce à des rencontres avec les autorités singapouriennes.'
           ]
         }
       ]
@@ -181,51 +181,32 @@
     if (element) element.innerHTML = html;
   };
 
-  const sortProjectsByDate = (language) => {
+  const projectOrder = ['mortgage', 'traffic', 'fiam', '401k', 'aldo', 'tesla'];
+  const projectKey = (project) => {
+    if (project.classList.contains('latest-mortgage-project')) return 'mortgage';
+    if (project.classList.contains('latest-traffic-project')) return 'traffic';
+    if (project.classList.contains('latest-401k-project')) return '401k';
+    return project.dataset.project || '';
+  };
+  const projectDates = {
+    en: { mortgage: 'Oct 2026 — Nov 2026', traffic: 'Sep 2026', fiam: 'Sep 2026 — Oct 2026', '401k': 'Oct 2026', tesla: 'Sep 2026' },
+    fr: { mortgage: 'Oct. 2026 — Nov. 2026', traffic: 'Sept. 2026', fiam: 'Sept. 2026 — Oct. 2026', '401k': 'Oct. 2026', tesla: 'Sept. 2026' }
+  };
+
+  const orderProjects = (language) => {
     const projects = Array.from(document.querySelectorAll('#projects > .experience-entry'));
-    const monthByName = {
-      jan: 1, janvier: 1, feb: 2, février: 2, fevrier: 2, mar: 3, mars: 3,
-      apr: 4, avril: 4, may: 5, mai: 5, jun: 6, juin: 6, jul: 7, juillet: 7,
-      aug: 8, august: 8, août: 8, aout: 8, sep: 9, sept: 9, september: 9, septembre: 9,
-      oct: 10, october: 10, octobre: 10, nov: 11, novembre: 11,
-      dec: 12, décembre: 12, decembre: 12
-    };
-    const tieOrder = (project) => {
-      if (project.classList.contains('latest-mortgage-project')) return -1;
-      const tag = project.querySelector('.project-tag')?.textContent || '';
-      if (tag.includes('CNID') || tag.includes('Challenge d’investissement')) return 0;
-      if (tag.includes('FIAM') || tag.includes('Gestion d’actifs')) return 1;
-      if (tag.includes('Credit risk') || tag.includes('Risque de crédit')) return 2;
-      if (tag.includes('ALDO')) return 3;
-      return 4;
-    };
     projects.forEach((project) => {
-      const tag = project.querySelector('.project-tag')?.textContent || '';
+      const key = projectKey(project);
       const date = project.querySelector('.experience-date');
       if (!date) return;
-      if (project.classList.contains('latest-mortgage-project')) {
-        date.textContent = language === 'fr' ? 'Oct. 2026' : 'Oct 2026';
-      } else if (project.classList.contains('latest-401k-project')) {
-        date.textContent = language === 'fr' ? 'Oct. 2026' : 'Oct 2026';
-      } else if (project.classList.contains('latest-traffic-project')) {
-        date.textContent = language === 'fr' ? 'Sept. 2026' : 'Sep 2026';
-      } else if (project.querySelector('.experience-title')?.textContent.includes('ALDO')) {
-        date.textContent = translations[language].aldo.date;
-      } else if (tag.includes('FIAM')) {
-        date.textContent = language === 'fr' ? 'Sept. 2026 — Oct. 2026' : 'Sep 2026 — Oct 2026';
-      } else if (tag.includes('CNID') || tag.includes('Challenge d’investissement')) {
-        date.textContent = language === 'fr' ? 'Septembre 2026 — Aujourd’hui' : 'September 2026 — Present';
-      } else {
-        date.textContent = language === 'fr' ? 'Sept. 2026 — Aujourd’hui' : 'Sep 2026 — Present';
-      }
+      if (key === 'aldo') date.textContent = translations[language].aldo.date;
+      else if (projectDates[language][key]) date.textContent = projectDates[language][key];
     });
-    const timestamp = (project) => {
-      const date = project.querySelector('.experience-date')?.textContent || '';
-      const year = Number(date.match(/\b20\d{2}\b/)?.[0] || 0);
-      const monthName = date.toLowerCase().match(/[a-zà-ÿ]+/i)?.[0] || '';
-      return year * 12 + (monthByName[monthName] || 0);
+    const rank = (project) => {
+      const index = projectOrder.indexOf(projectKey(project));
+      return index === -1 ? projectOrder.length : index;
     };
-    projects.sort((a, b) => timestamp(b) - timestamp(a) || tieOrder(a) - tieOrder(b));
+    projects.sort((a, b) => rank(a) - rank(b));
     const container = document.querySelector('#projects');
     projects.forEach((project) => container.appendChild(project));
   };
@@ -326,7 +307,7 @@
         if (item.points[pointIndex] !== undefined) point.textContent = item.points[pointIndex];
       });
     });
-    sortProjectsByDate(language);
+    orderProjects(language);
     document.documentElement.lang = language;
   };
 
