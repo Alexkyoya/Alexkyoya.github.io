@@ -181,16 +181,17 @@
     if (element) element.innerHTML = html;
   };
 
-  const projectOrder = ['mortgage', 'traffic', 'fiam', '401k', 'aldo', 'tesla'];
+  const projectOrder = ['mortgage', 'secondlook', 'traffic', 'fiam', '401k', 'aldo', 'tesla'];
   const projectKey = (project) => {
     if (project.classList.contains('latest-mortgage-project')) return 'mortgage';
+    if (project.classList.contains('latest-secondlook-project')) return 'secondlook';
     if (project.classList.contains('latest-traffic-project')) return 'traffic';
     if (project.classList.contains('latest-401k-project')) return '401k';
     return project.dataset.project || '';
   };
   const projectDates = {
-    en: { mortgage: 'Oct 2026 — Nov 2026', traffic: 'Sep 2026', fiam: 'Sep 2026 — Oct 2026', '401k': 'Oct 2026', tesla: 'Sep 2026' },
-    fr: { mortgage: 'Oct. 2026 — Nov. 2026', traffic: 'Sept. 2026', fiam: 'Sept. 2026 — Oct. 2026', '401k': 'Oct. 2026', tesla: 'Sept. 2026' }
+    en: { mortgage: 'Oct 2026 — Nov 2026', secondlook: 'Nov 2026', traffic: 'Sep 2026', fiam: 'Sep 2026 — Oct 2026', '401k': 'Oct 2026', tesla: 'Sep 2026' },
+    fr: { mortgage: 'Oct. 2026 — Nov. 2026', secondlook: 'Nov. 2026', traffic: 'Sept. 2026', fiam: 'Sept. 2026 — Oct. 2026', '401k': 'Oct. 2026', tesla: 'Sept. 2026' }
   };
 
   const orderProjects = (language) => {
